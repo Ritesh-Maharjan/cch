@@ -1,9 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-// @ts-expect-error type error
 import type { Splide as SplideType } from "@splidejs/react-splide";
-// @ts-expect-error type error
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import Image from "next/image";
