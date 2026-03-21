@@ -19,8 +19,8 @@
   --transition-duration-600: 600ms;
 
   /* Marquee Animation */
-  --animate-marquee: marquee 7s linear infinite;
-  --animate-marquee-reverse: marquee-reverse 7s linear infinite;
+  --animate-marquee: marquee 80s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 80s linear infinite;
 }
 
 @keyframes marquee {

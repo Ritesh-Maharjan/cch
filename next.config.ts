@@ -7,6 +7,11 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "picsum.photos",
       },
+      {
+        protocol: "https",
+        hostname: "mediumaquamarine-partridge-477378.hostingersite.com",
+        pathname: "/wp-content/uploads/**",
+      },
     ],
   },
 };
