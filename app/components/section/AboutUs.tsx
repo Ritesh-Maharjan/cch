@@ -57,8 +57,8 @@ const AboutUs = ({ logos }: AboutUsProps) => {
                             {[...logos, ...logos].map((src, index) => (
                                 <div
                                     key={index}
-                                    className="relative w-32 h-24 lg:w-64 lg:h-40 shrink-0 overflow-hidden rounded-lg shadow-lg 
-                                    transition duration-600 ease-out-expo bg-black"
+                                    className="relative w-32 h-24 lg:w-64 lg:h-40 shrink-0 overflow-hidden 
+                                    transition duration-600 ease-out-expo"
                                 >
                                     <Image
                                         src={src}
