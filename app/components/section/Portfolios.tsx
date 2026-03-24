@@ -3,11 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCube } from "swiper/modules";
+import { EffectCube, Navigation } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
 import { PortfolioItem } from "@/lib/wordpress";
 import "swiper/css";
 import "swiper/css/effect-cube";
+import "swiper/css/navigation";
 
 interface PortfoliosProps {
     initialSlides: PortfolioItem[];
@@ -43,27 +44,76 @@ export default function Portfolios({ initialSlides }: PortfoliosProps) {
         return <div>Loading portfolios...</div>;
     }
 
+    const [activeSlide, setActiveSlide] = useState<PortfolioItem | null>(slides[0] || null);
+
+    useEffect(() => {
+        const handleSlideChange = (swiper: SwiperType) => {
+            const slide = slides[swiper.activeIndex];
+            setActiveSlide(slide || null);
+        };
+
+        swiperRef.current?.on("slideChange", handleSlideChange);
+        return () => {
+            swiperRef.current?.off("slideChange", handleSlideChange);
+        };
+    }, [slides]);
+
     return (
         <section
             id="portfolios"
-            className="relative grid grid-cols-[50%_45%] place-items-center gap-16 min-h-screen px-4 md:px-16 bg-white from-[#0C2438] via-[#194B75] to-[#F9FCFF]"
+            className="my-20 relative flex flex-col items-center gap-8 min-h-screen px-4 md:px-8 lg:grid lg:grid-cols-[50%_45%] lg:place-items-center lg:gap-16 bg-white"
         >
-            <div className="max-w-[2400px]">
+            <div className="order-2 lg:order-1 w-full max-w-[2400px]">
                 <h1 className="font-[Comfortaa] text-4xl md:text-5xl font-bold text-black mb-9">
-                    Capital Portfolio
+                    {activeSlide?.title.rendered || "Capital Portfolio"}
                 </h1>
                 <p className="font-light mb-8 text-lg text-black md:text-xl">
-                    Some text about the company here Our tours are designed to transport you to the heart of the worlds most captivating destinations, creating memories that will last a lifetime. You can uncover the hidden gems, iconic landmarks, and unique cultural treasures that make each destination special.
+                    {activeSlide?.acf.description ||
+                        "Some text about the company here. Our tours are designed to transport you to the heart of the world's most captivating destinations, creating memories that will last a lifetime. You can uncover the hidden gems, iconic landmarks, and unique cultural treasures that make each destination special."}
                 </p>
+                <div className="space-y-1 text-sm md:text-base text-zinc-700 mb-8">
+                    <p>
+                        <span className="font-semibold">Region:</span>{" "}
+                        {activeSlide?.acf.region || "N/A"}
+                    </p>
+                    <p>
+                        <span className="font-semibold">Industry:</span>{" "}
+                        {activeSlide?.acf.industry || "N/A"}
+                    </p>
+                    <p>
+                        <span className="font-semibold">Year:</span>{" "}
+                        {activeSlide?.acf.year || "N/A"}
+                    </p>
+                </div>
                 <button className="bg-gray-200 text-gray-900 px-4 py-2 rounded-lg font-semibold hover:bg-indigo-600 hover:text-white transition">
                     Explore Tours
                 </button>
             </div>
 
-            <div className="w-[400px] h-[490px] md:w-[450px] md:h-[500px]">
+            <div className="order-1 lg:order-2 relative w-[320px] h-[420px] sm:w-[360px] sm:h-[460px] md:w-[420px] md:h-[500px]">
+                <button
+                    aria-label="Previous slide"
+                    className="portfolio-prev absolute -left-12 top-1/2 z-20 -translate-y-1/2 h-9 w-9 rounded-full bg-white/90 text-black shadow"
+                    type="button"
+                >
+                    &#10094;
+                </button>
+
+                <button
+                    aria-label="Next slide"
+                    className="portfolio-next absolute -right-12 top-1/2 z-20 -translate-y-1/2 h-9 w-9 rounded-full bg-white/90 text-black shadow"
+                    type="button"
+                >
+                    &#10095;
+                </button>
+
                 <Swiper
-                    modules={[EffectCube]}
+                    modules={[EffectCube, Navigation]}
                     effect="cube"
+                    navigation={{
+                        prevEl: ".portfolio-prev",
+                        nextEl: ".portfolio-next",
+                    }}
                     cubeEffect={{
                         shadow: false,
                         slideShadows: true,
@@ -95,18 +145,6 @@ export default function Portfolios({ initialSlides }: PortfoliosProps) {
                                 className="object-cover"
                                 sizes="450px"
                             />
-                            <div className="absolute top-2 right-2 bg-white/30 backdrop-blur-md px-3 py-1 rounded-full text-white font-semibold text-sm">
-                                {slide.acf.industry}
-                            </div>
-                            <div className="absolute bottom-0 w-full h-[150px] bg-white/20 backdrop-blur-2xl px-4 py-3 text-white flex flex-col justify-center rounded-b-2xl">
-                                <h2 className="font-semibold text-lg">{slide.title.rendered}</h2>
-                                <p className="text-sm font-light">{slide.acf.description}</p>
-                                <div className="flex items-center gap-2 mt-1">
-                                    <span className="text-white text-xs">{slide.acf.region}</span>
-                                    <span className="text-white text-xs">•</span>
-                                    <span className="text-white text-xs">{slide.acf.year}</span>
-                                </div>
-                            </div>
                         </SwiperSlide>
                     ))}
                 </Swiper>
