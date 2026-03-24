@@ -78,7 +78,7 @@ const AboutUs = ({ logos }: AboutUsProps) => {
                                 <div
                                     key={index}
                                     className="relative w-32 h-24 md:w-64 md:h-40 shrink-0 overflow-hidden rounded-lg shadow-lg 
-                                    transition duration-600 ease-out-expo bg-black"
+                                    transition duration-600 ease-out-expo"
                                 >
                                     <Image
                                         src={src}
