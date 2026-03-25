@@ -4,15 +4,6 @@ import { PortfolioItem } from "@/lib/wordpress";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-const container = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
-
 const item = {
   hidden: { opacity: 0, y: 40 },
   show: { opacity: 1, y: 0 },
