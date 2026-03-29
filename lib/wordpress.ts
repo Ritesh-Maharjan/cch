@@ -1,6 +1,7 @@
 import { ENDPOINTS, REVALIDATE_TIME } from "./constants";
 
 export interface PortfolioItem {
+    slug: string;
     id: number;
     title: {
         rendered: string;
