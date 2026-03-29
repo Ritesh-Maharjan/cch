@@ -3,6 +3,7 @@
 import { PortfolioItem } from "@/lib/wordpress";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 const item = {
   hidden: { opacity: 0, y: 40 },
@@ -40,6 +41,12 @@ const PortfolioList = ({ data }: { data: PortfolioItem[] }) => {
           >
             <h2 className="text-2xl font-heading">{el.title.rendered}</h2>
             <p className="md:max-w-[70ch]">{el.acf.description}</p>
+            <Link
+              href={"/portfolios/" + el.slug}
+              className="self-start text-sm font-semibold border-2 border-gray-900 px-4 py-2 rounded-lg hover:bg-gray-900 hover:text-white transition"
+            >
+              View Project
+            </Link>
           </motion.div>
         </motion.div>
       ))}
