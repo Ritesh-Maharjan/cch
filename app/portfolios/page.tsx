@@ -2,6 +2,11 @@ import { getPortfolios } from "@/lib/wordpress";
 import Header from "../components/layout/Header";
 import PortfolioList from "../components/section/PortfolioList";
 
+export const metadata = {
+  title: "Portfolios",
+  description: "Investment that we currently manage",
+};
+
 const page = async () => {
   const data = await getPortfolios();
   return (
@@ -17,7 +22,6 @@ const page = async () => {
           </p>
         </div>
       </section>
-
 
       <PortfolioList data={data} />
     </div>
