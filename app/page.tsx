@@ -1,4 +1,3 @@
-import Header from "./components/layout/Header";
 import AboutUs from "./components/section/AboutUs";
 import Hero from "./components/section/Hero";
 import VideoPlayer from "./components/ui/VideoPlayer";
@@ -17,7 +16,6 @@ export default async function Home() {
     <div className="flex overflow-hidden min-h-screen  bg-zinc-50 font-sans">
       <main>
         <BackgroundSection variant="gradient">
-          <Header />
           <Hero />
         </BackgroundSection>    
         <AboutUs logos={logos} />

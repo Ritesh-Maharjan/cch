@@ -1,7 +1,7 @@
-import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import { Lexend_Giga } from "next/font/google";
 import "./globals.css";
+import Header from "./components/layout/Header";
 
 const lexendGiga = Lexend_Giga({
   weight: ["400", "600", "700", "900"],
@@ -56,7 +56,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} ${lexendGiga.variable} antialiased`}>
+      <body className={`${roboto.variable} ${lexendGiga.variable} relative antialiased`}>
+          <Header />
         {children}
       </body>
     </html>
