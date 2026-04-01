@@ -114,8 +114,8 @@ export default async function PortfolioPage({ params }: PageProps) {
                         <div className="space-y-6 text-lg text-white">
                             {(portfolio.acf?.description || "")
                                 .split(/\r?\n\r?\n/)
-                                .filter((chunk) => chunk.trim().length > 0)
-                                .map((chunk, i) => (
+                                .filter((chunk: string) => chunk.trim().length > 0)
+                                .map((chunk: string, i: number) => (
                                     <p key={i}>{chunk}</p>
                                 ))}
                         </div>
