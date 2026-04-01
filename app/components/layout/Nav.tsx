@@ -4,21 +4,41 @@ import Button from "../ui/Button";
 import { useState } from "react";
 
 const linkArr = [
-  { text: "ABOUT US", link: "/", img: "/bg1.jpg" },
-  { text: "OUR EDGE", link: "/", img: "/bg2.jpg" },
-  { text: "OUR APPROACH", link: "/", img: "/bg1.jpg" },
-  { text: "PORTFOLIO", link: "/", img: "/bg2.jpg" },
-  { text: "CONTACT US", link: "/", img: "/bg1.jpg" },
+  { text: "ABOUT US", link: "/#about-us" },
+  { text: "OUR EDGE", link: "/#our-edge" },
+  { text: "OUR APPROACH", link: "/#our-approach" },
+  { text: "PORTFOLIO", link: "/#portfolio" },
+  { text: "CONTACT US", link: "/#contact-us" },
 ];
+
 const Nav = () => {
   const [isMenuActive, setIsMenuActive] = useState<boolean>(false);
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const href = e.currentTarget.getAttribute("href") || "";
+    const isHomeHash = href.startsWith("/#");
+
+    if (window.location.pathname === "/" && isHomeHash) {
+      e.preventDefault();
+      const hash = "#" + href.split("#")[1];
+      const target = document.querySelector(hash);
+      target?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    setIsMenuActive(false);
+  };
+
   return (
     <nav>
       <div className="hidden md:block">
         <ul className="flex gap-2 items-center lg:gap-6">
           {linkArr.map((el) => (
             <li key={el.text}>
-              <Link className="text-xs lg:text-base" href={el.link}>
+              <Link
+                className="text-xs lg:text-base"
+                href={el.link}
+                onClick={handleLinkClick}
+              >
                 {el.text}
               </Link>
             </li>
@@ -53,6 +73,7 @@ const Nav = () => {
                   className={`transition-all duration-200 ease-in hover:text-[#00eca6] hover:text-4xl hover:ml-2.5 hover:scale-105`}
                   key={el.text}
                   href={el.link}
+                  onClick={handleLinkClick}
                 >
                   {el.text}
                 </Link>

@@ -18,14 +18,29 @@ export default async function Home() {
         <BackgroundSection variant="gradient">
           <Hero />
         </BackgroundSection>    
-        <AboutUs logos={logos} />
+        <section id="about-us">
+          <AboutUs logos={logos} />
+        </section>
+
         <div>
-          <VideoPlayer src="/video/cch1.mp4" className="w-full shadow-lg" />
+          <VideoPlayer src="/video/cch1.mp4" className="w-full shadow-xl" />
         </div>
-        <Edge />
-        <Approach />
-        <Portfolios initialSlides={portfolios} />
-        <Contact />
+
+        <section id="our-edge">
+          <Edge />
+        </section>
+
+        <section id="our-approach">
+          <Approach />
+        </section>
+
+        <section id="portfolio">
+          <Portfolios initialSlides={portfolios} />
+        </section>
+
+        <section id="contact-us">
+          <Contact />
+        </section>
       </main>
     </div>
   );

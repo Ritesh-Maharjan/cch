@@ -51,7 +51,7 @@ const AboutUs = ({ logos }: AboutUsProps) => {
                     Our trusted partners, from film production to consumer products
                 </p>
                 {/* Swiper */}
-                <div className="whitespace-nowrap py-4 flex flex-col gap-4 overflow-hidden rounded-4xl bg-white">
+                <div className="whitespace-nowrap py-4 flex flex-col gap-4 overflow-hidden shadow-xl rounded-4xl bg-white">
                     <div className="w-fit">
                         <div className="flex gap-4 animate-marquee">
                             {[...logos, ...logos].map((src, index) => (
