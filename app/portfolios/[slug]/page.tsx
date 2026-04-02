@@ -4,7 +4,7 @@ import BackgroundSection from "../../components/layout/BackgroundSection";
 import PortfolioBackgroundCarousel from "../../components/section/PortfolioBackgroundCarousel";
 import Link from "next/link";
 import Button from "@/app/components/ui/Button";
-import Contact from "@/app/components/section/Contact";
+import ContactSingle from "@/app/components/section/ContactSingle";
 
 type PageProps = {
     params: Promise<{ slug: string }>;
@@ -123,7 +123,7 @@ export default async function PortfolioPage({ params }: PageProps) {
                 </div>
             </div>
             <PortfolioBackgroundCarousel />
-            <Contact />
+            <ContactSingle />
         </BackgroundSection>
     );
 }

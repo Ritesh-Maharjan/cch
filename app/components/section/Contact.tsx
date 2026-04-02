@@ -14,7 +14,7 @@ const Contact = () => {
         />
       </div>
 
-      <ContactForm />
+      <ContactForm className="max-w-125 row-start-2 md:row-start-1 md:col-start-2 py-12 lg:py-24 px-4 flex flex-col gap-6 md:gap-8" />
     </section>
   );
 };

@@ -2,7 +2,7 @@
 import { submitForm } from "@/app/actions";
 import { useActionState } from "react";
 
-const ContactForm = () => {
+const ContactForm = ({ className }: { className: string }) => {
   const [state, formAction, pending] = useActionState(submitForm, {
     success: false,
     message: "",
@@ -10,7 +10,7 @@ const ContactForm = () => {
   });
 
   return (
-    <div className="max-w-125 row-start-2 md:row-start-1 md:col-start-2 py-12 lg:py-24 px-4 flex flex-col gap-6 md:gap-8">
+    <div className={`${className}`}>
       <h2 className="flex flex-col w-fit text-2xl lg:text-4xl font-extralight leading-8 md:leading-15">
         Contact
       </h2>
@@ -45,7 +45,9 @@ const ContactForm = () => {
               id="lastName"
             />
             {state.errors?.lastName && (
-              <p className="text-red-500 text-xs mt-1">{state.errors.lastName}</p>
+              <p className="text-red-500 text-xs mt-1">
+                {state.errors.lastName}
+              </p>
             )}
           </fieldset>
         </div>
@@ -88,13 +90,13 @@ const ContactForm = () => {
           </div>
         )}
 
-    <button
-      className="bg-[#A1896D] text-lg col-span-2 py-3 rounded-xl cursor-pointer disabled:opacity-50"
-      type="submit"
-      disabled={pending}
-    >
-      {pending ? "Submitting..." : "Submit"}
-    </button>
+        <button
+          className="bg-[#A1896D] text-lg col-span-2 py-3 rounded-xl cursor-pointer disabled:opacity-50"
+          type="submit"
+          disabled={pending}
+        >
+          {pending ? "Submitting..." : "Submit"}
+        </button>
       </form>
     </div>
   );
