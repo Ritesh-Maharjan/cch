@@ -24,6 +24,12 @@ export default function Portfolios({ initialSlides }: PortfoliosProps) {
         slides[0] || null,
     );
 
+    const truncateWords = (text: string, limit = 50) => {
+        const words = text.trim().split(/\s+/);
+        if (words.length <= limit) return text;
+        return words.slice(0, limit).join(" ") + "...";
+    };
+
     useEffect(() => {
         const interval = setInterval(() => {
             const swiper = swiperRef.current;
@@ -31,7 +37,8 @@ export default function Portfolios({ initialSlides }: PortfoliosProps) {
 
             isAnimating.current = true;
 
-            if (swiper.isEnd) {
+            // If on last slide, go to first
+            if (swiper.activeIndex === slides.length - 1) {
                 swiper.slideTo(0);
             } else {
                 swiper.slideNext();
@@ -47,7 +54,7 @@ export default function Portfolios({ initialSlides }: PortfoliosProps) {
 
     useEffect(() => {
         const handleSlideChange = (swiper: SwiperType) => {
-            const slide = slides[swiper.activeIndex];
+            const slide = slides[swiper.realIndex];
             setActiveSlide(slide || null);
         };
 
@@ -64,12 +71,15 @@ export default function Portfolios({ initialSlides }: PortfoliosProps) {
         <section className="w-full bg-white">
             <div className="max-w-7xl mx-auto py-20 relative flex flex-col items-center gap-8 min-h-screen px-4 md:px-8 lg:grid lg:grid-cols-[50%_45%] lg:place-items-center lg:gap-16">
                 <div className="order-2 lg:order-1 w-full max-w-[2400px]">
-                    <h1 className="font-[Comfortaa] text-4xl md:text-5xl font-bold text-black mb-9">
+                    <h1 className="text-2xl lg:text-4xl font-extralight leading-8 md:leading-15 text-black mb-9">
                         {activeSlide?.title.rendered || "Capital Portfolio"}
                     </h1>
-                    <p className="font-light mb-8 text-lg text-black md:text-xl">
-                        {activeSlide?.acf.description ||
-                            "Some text about the company here. Our tours are designed to transport you to the heart of the world's most captivating destinations, creating memories that will last a lifetime. You can uncover the hidden gems, iconic landmarks, and unique cultural treasures that make each destination special."}
+                    <p className="mb-8 text-black">
+                        {truncateWords(
+                            activeSlide?.acf.description ||
+                                "Some text about the company here. Our tours are designed to transport you to the heart of the world's most captivating destinations, creating memories that will last a lifetime. You can uncover the hidden gems, iconic landmarks, and unique cultural treasures that make each destination special.",
+                            50,
+                        )}
                     </p>
                     <div className="space-y-1 text-sm md:text-base text-zinc-700 mb-8">
                         <p>
@@ -112,6 +122,7 @@ export default function Portfolios({ initialSlides }: PortfoliosProps) {
                     <Swiper
                         modules={[EffectCube, Navigation]}
                         effect="cube"
+                        loop={true}
                         navigation={{
                             prevEl: ".portfolio-prev",
                             nextEl: ".portfolio-next",
