@@ -3,7 +3,7 @@ import Link from "next/link";
 import Button from "../ui/Button";
 import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 const linkArr = [
   { text: "ABOUT US", link: "/#about-us" },
@@ -36,7 +36,7 @@ const Nav = () => {
     window.location.href = "/";
   };
 
-  const menuVariants = {
+  const menuVariants: Variants = {
     hidden: { opacity: 0, x: -50 },
     visible: (i: number) => ({
       opacity: 1,

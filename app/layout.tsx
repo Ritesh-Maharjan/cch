@@ -2,6 +2,7 @@ import { Roboto } from "next/font/google";
 import { Lexend_Giga } from "next/font/google";
 import "./globals.css";
 import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
 
 const lexendGiga = Lexend_Giga({
   weight: ["400", "600", "700", "900"],
@@ -21,7 +22,7 @@ const roboto = Roboto({
 export const metadata = {
   title: {
     default: "CCH Investments",
-    template: "%s | CCH Investment"
+    template: "%s | CCH Investment",
   },
   description: "Your next step to private inveestments",
   icons: {
@@ -33,6 +34,7 @@ export const metadata = {
     apple: "/icons/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",
+  metadataBase: new URL("https://www.cch-investments.com"),
   openGraph: {
     title: "CCH Investments",
     description: "Your next step to private investments",
@@ -56,9 +58,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} ${lexendGiga.variable} relative antialiased`}>
-          <Header />
+      <body
+        className={`${roboto.variable} ${lexendGiga.variable} font-sans relative antialiased`}
+      >
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
