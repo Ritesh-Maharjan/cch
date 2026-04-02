@@ -2,6 +2,8 @@
 import Link from "next/link";
 import Button from "../ui/Button";
 import { useState } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 const linkArr = [
   { text: "ABOUT US", link: "/#about-us" },
@@ -28,6 +30,25 @@ const Nav = () => {
     setIsMenuActive(false);
   };
 
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setIsMenuActive(false);
+    window.location.href = "/";
+  };
+
+  const menuVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: (i: number) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: i * 0.1,
+        duration: 0.4,
+        ease: "easeOut",
+      },
+    }),
+  };
+
   return (
     <nav>
       <div className="hidden md:block">
@@ -48,38 +69,76 @@ const Nav = () => {
       </div>
 
       <div className="relative">
-        {!isMenuActive && (
-          <button
-            onClick={() => setIsMenuActive(true)}
-            className="absolute group flex flex-col gap-2 cursor-pointer tracking-wider top-0 right-0 md:hidden"
-          >
-            <span className="w-14 h-1 block bg-white transition-all ease-out-expo duration-100 group-hover:w-16 group-hover:ml-2"></span>
-            <span className="w-12 h-1 block bg-white transition-all ease-(--transition-timing-function-ease-out-expo) delay-100 group-hover:w-14 group-hover:-ml-2"></span>
-          </button>
-        )}
+        <motion.button
+          onClick={() => setIsMenuActive(!isMenuActive)}
+          className="absolute group flex flex-col gap-2 cursor-pointer tracking-wider top-0 right-0 md:hidden z-51"
+        >
+          <motion.span
+            className="w-14 h-1 block bg-white"
+            animate={
+              isMenuActive
+                ? { rotate: 45, y: 10, width: "56px" }
+                : { rotate: 0, y: 0, width: "37px" }
+            }
+            transition={{ duration: 0.3 }}
+          />
+          <motion.span
+            className="w-14 h-1 block bg-white"
+            animate={
+              isMenuActive
+                ? { rotate: -45, y: -2 }
+                : { rotate: 0, y: 0 }
+            }
+            transition={{ duration: 0.3 }}
+          />
+        </motion.button>
 
         {isMenuActive && (
-          <div className="fixed inset-0 bg-black p-4 flex justify-between md:hidden">
-            <button
-              onClick={() => setIsMenuActive(false)}
-              className="text-5xl absolute cursor-pointer right-10"
-            >
-              &times;
-            </button>
-            <ul className="flex flex-col justify-center relative h-screen text-3xl">
-              <li className="text-xl opacity-40">MENU</li>
-              {linkArr.map((el) => (
-                <Link
-                  className={`transition-all duration-200 ease-in hover:text-[#00eca6] hover:text-4xl hover:ml-2.5 hover:scale-105`}
-                  key={el.text}
-                  href={el.link}
-                  onClick={handleLinkClick}
-                >
-                  {el.text}
+          <>
+            <div className="fixed inset-0 bg-[#0C2438] w-screen h-screen md:hidden z-50 animate-fadeIn" />
+            <div className="fixed inset-0 flex flex-col justify-start pt-32 p-6 md:hidden z-50 animate-fadeIn">
+              <div className="absolute top-6 left-6 right-6 flex justify-between items-center">
+                <Link href="/" onClick={handleLogoClick} className="text-white text-2xl font-bold">
+                  <Image
+                    className="md:hidden cursor-pointer"
+                    src="/mobile-logo.svg"
+                    alt="CCH-Investment Logo"
+                    width={41}
+                    height={41}
+                  />
                 </Link>
-              ))}
-            </ul>
-          </div>
+              </div>
+
+              <ul className="flex flex-col gap-8 text-3xl">
+                <motion.li
+                  className="text-xl opacity-60"
+                  custom={0}
+                  initial="hidden"
+                  animate="visible"
+                  variants={menuVariants}
+                >
+                  MENU
+                </motion.li>
+                {linkArr.map((el, i) => (
+                  <motion.li
+                    key={el.text}
+                    custom={i + 1}
+                    initial="hidden"
+                    animate="visible"
+                    variants={menuVariants}
+                  >
+                    <Link
+                      className={`text-white transition-all duration-200 ease-in hover:text-[#00eca6]`}
+                      href={el.link}
+                      onClick={handleLinkClick}
+                    >
+                      {el.text}
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+          </>
         )}
       </div>
     </nav>

@@ -51,7 +51,7 @@ const AboutUs = ({ logos }: AboutUsProps) => {
                     Our trusted partners, from film production to consumer products
                 </p>
                 {/* Swiper */}
-                <div className="whitespace-nowrap py-4 flex flex-col gap-4 overflow-hidden shadow-xl rounded-4xl bg-white">
+                <div className="whitespace-nowrap py-4 flex flex-col gap-4 overflow-hidden shadow-2xl rounded-4xl bg-white">
                     <div className="w-fit">
                         <div className="flex gap-4 animate-marquee">
                             {[...logos, ...logos].map((src, index) => (
@@ -95,10 +95,10 @@ const AboutUs = ({ logos }: AboutUsProps) => {
                 </div>
             </div>
 
-            <div className="mt-14 grid grid-cols-1 text-[#033E6E] gap-x-4 gap-y-8 md:gap-x-16 lg:gap-x-32 lg:grid-cols-2 lg:grid-rows-[auto_1fr] md:px-4">
+            <div className="mt-18 grid grid-cols-1 text-[#033E6E] gap-x-4 gap-y-8 md:gap-x-16 lg:gap-x-32 lg:grid-cols-2 lg:grid-rows-[auto_1fr] md:px-4">
                 <div
                     ref={wrapperRef}
-                    className="relative overflow-hidden h-150 md:h-[px] lg:row-span-2 order-2 lg:order-1"
+                    className="relative overflow-hidden h-64 sm:h-80 md:h-96 lg:h-[38rem] lg:row-span-2 order-2 lg:order-1"
                     aria-hidden={false}
                 >
                     <div
