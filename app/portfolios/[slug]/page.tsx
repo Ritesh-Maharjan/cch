@@ -4,7 +4,7 @@ import BackgroundSection from "../../components/layout/BackgroundSection";
 import PortfolioBackgroundCarousel from "../../components/section/PortfolioBackgroundCarousel";
 import Link from "next/link";
 import Button from "@/app/components/ui/Button";
-import Contact from "@/app/components/section/Contact";
+import ContactSingle from "@/app/components/section/ContactSingle";
 
 type PageProps = {
     params: Promise<{ slug: string }>;
@@ -15,12 +15,12 @@ export async function generateMetadata({ params }: PageProps) {
     const portfolio = await fetchPortfolio(slug);
 
     return {
-        title: portfolio.title.rendered,
-        description: portfolio.acf.description,
+        title: portfolio?.title.rendered,
+        description: portfolio?.acf.description,
 
         openGraph: {
-            title: portfolio.title.rendered,
-            description: portfolio.excerpt,
+            title: portfolio?.title.rendered,
+            description: portfolio?.excerpt,
             images: [
                 {
                     url:
@@ -123,7 +123,7 @@ export default async function PortfolioPage({ params }: PageProps) {
                 </div>
             </div>
             <PortfolioBackgroundCarousel />
-            <Contact />
+            <ContactSingle />
         </BackgroundSection>
     );
 }
