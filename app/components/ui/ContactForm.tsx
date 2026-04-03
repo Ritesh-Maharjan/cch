@@ -1,8 +1,14 @@
 "use client";
 import { submitForm } from "@/app/actions";
-import { useActionState } from "react";
+import { ReactNode, useActionState } from "react";
 
-const ContactForm = ({ className }: { className: string }) => {
+const ContactForm = ({
+  className,
+  children,
+}: {
+  className: string;
+  children?: ReactNode;
+}) => {
   const [state, formAction, pending] = useActionState(submitForm, {
     success: false,
     message: "",
@@ -14,10 +20,8 @@ const ContactForm = ({ className }: { className: string }) => {
       <h2 className="flex flex-col w-fit text-2xl lg:text-4xl font-extralight leading-8 md:leading-15">
         Contact
       </h2>
-      <p>
-        We provide strategic equity investments designed to fuel sustainable
-        growth and lasting partnerships.
-      </p>
+
+      {children}
 
       <form action={formAction} className="flex flex-col gap-6">
         <div className="flex flex-col lg:flex-row gap-6">

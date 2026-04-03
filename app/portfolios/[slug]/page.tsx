@@ -15,12 +15,12 @@ export async function generateMetadata({ params }: PageProps) {
     const portfolio = await fetchPortfolio(slug);
 
     return {
-        title: portfolio.title.rendered,
-        description: portfolio.acf.description,
+        title: portfolio?.title.rendered,
+        description: portfolio?.acf.description,
 
         openGraph: {
-            title: portfolio.title.rendered,
-            description: portfolio.excerpt,
+            title: portfolio?.title.rendered,
+            description: portfolio?.excerpt,
             images: [
                 {
                     url:
