@@ -8,7 +8,7 @@ const Contact = () => {
       <div className="relative h-80 sm:h-80 md:h-auto">
         <Image
           className="object-cover"
-          src="/contact-bg.webp"
+          src="/contactus.jpg"
           alt="building"
           fill
         />

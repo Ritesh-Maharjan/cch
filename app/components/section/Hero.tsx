@@ -26,7 +26,7 @@ const Hero = () => {
     >
       <div className="max-w-150 flex flex-col gap-8 md:gap-12">
         <motion.h1
-          className="text-4xl md:text-5xl md:leading-15 font-semibold font-heading"
+          className="text-white text-4xl md:text-5xl md:leading-15 font-semibold font-heading"
           variants={itemVariants}
         >
           FUNDING SOLUTIONS BUILT ON TRUST
