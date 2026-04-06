@@ -7,6 +7,7 @@ import Approach from "./components/section/Approach";
 import Contact from "./components/section/Contact";
 import { getPortfolios } from "@/lib/wordpress";
 import BackgroundSection from "./components/layout/BackgroundSection";
+import HashScroll from "./components/layout/HashScroll";
 
 export default async function Home() {
   const portfolios = await getPortfolios();
@@ -15,6 +16,7 @@ export default async function Home() {
   return (
     <div className="flex overflow-hidden min-h-screen  bg-zinc-50 font-sans">
       <main>
+        <HashScroll />
         <BackgroundSection variant="gradient">
           <Hero />
         </BackgroundSection>    
