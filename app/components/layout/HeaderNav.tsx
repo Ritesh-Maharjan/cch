@@ -4,14 +4,7 @@ import Button from "../ui/Button";
 import { useState } from "react";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
-
-const linkArr = [
-  { text: "ABOUT US", link: "/#about-us" },
-  { text: "OUR EDGE", link: "/#our-edge" },
-  { text: "OUR APPROACH", link: "/#our-approach" },
-  { text: "PORTFOLIO", link: "/#portfolio" },
-  { text: "CONTACT US", link: "/#contact-us" },
-];
+import { LINK_ARR } from "@/lib/constants";
 
 const Nav = () => {
   const [isMenuActive, setIsMenuActive] = useState<boolean>(false);
@@ -53,7 +46,7 @@ const Nav = () => {
     <nav>
       <div className="hidden md:block">
         <ul className="flex gap-2 items-center lg:gap-6">
-          {linkArr.map((el) => (
+          {LINK_ARR.map((el) => (
             <li key={el.text}>
               <Link
                 className="text-xs lg:text-base"
@@ -119,7 +112,7 @@ const Nav = () => {
                 >
                   MENU
                 </motion.li>
-                {linkArr.map((el, i) => (
+                {LINK_ARR.map((el, i) => (
                   <motion.li
                     key={el.text}
                     custom={i + 1}

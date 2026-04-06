@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
+import FooterNav from "./FooterNav";
 
 const Footer = () => {
-
   return (
     <footer className="w-full bg-[#0C2438]">
       <section className="flex flex-col gap-10 md:flex-row md:items-center justify-between max-w-7xl mx-auto px-4 py-10">
@@ -22,12 +22,15 @@ const Footer = () => {
           </span>
         </div>
 
-        <address className="font-extralight">
-          Floor 15 - 543 Granville Street <br />
-          Vancouver, British Columbia
-          <br />
-          Canada V6C 1X6
-        </address>
+        <div className="flex flex-col gap-5 ">
+          <FooterNav />
+          <address className="font-extralight md:text-right">
+            Floor 15 - 543 Granville Street <br />
+            Vancouver, British Columbia
+            <br />
+            Canada V6C 1X6
+          </address>
+        </div>
       </section>
     </footer>
   );
