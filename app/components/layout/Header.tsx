@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import Nav from "./Nav";
+import Nav from "./HeaderNav";
 
 const Header = () => {
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
