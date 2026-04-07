@@ -2,7 +2,6 @@ import { LINK_ARR } from "@/lib/constants";
 import Link from "next/link";
 
 const FooterNav = () => {
-
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const href = e.currentTarget.getAttribute("href") || "";
     const isHomeHash = href.startsWith("/#");
@@ -13,7 +12,6 @@ const FooterNav = () => {
       const target = document.querySelector(hash);
       target?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-
   };
 
   return (
@@ -23,7 +21,7 @@ const FooterNav = () => {
           <li key={el.text}>
             <Link
               className="text-sm md:text-base"
-              href={el.link}
+              href={`/#${el.link}`}
               onClick={handleLinkClick}
             >
               {el.text}
