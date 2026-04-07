@@ -5,9 +5,14 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 import { LINK_ARR } from "@/lib/constants";
+import { useScrollSpy } from "@/app/hooks/useScrollSpy";
 
 const Nav = () => {
   const [isMenuActive, setIsMenuActive] = useState<boolean>(false);
+  const activeId = useScrollSpy(
+    LINK_ARR.map((l) => l.link),
+    0,
+  );
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const href = e.currentTarget.getAttribute("href") || "";
@@ -49,8 +54,8 @@ const Nav = () => {
           {LINK_ARR.map((el) => (
             <li key={el.text}>
               <Link
-                className="text-xs lg:text-base"
-                href={el.link}
+                className={`text-xs lg:text-base ${activeId === el.link && "underline"}`}
+                href={`/#${el.link}`}
                 onClick={handleLinkClick}
               >
                 {el.text}
@@ -78,9 +83,7 @@ const Nav = () => {
           <motion.span
             className="w-14 h-1 block bg-white"
             animate={
-              isMenuActive
-                ? { rotate: -45, y: -2 }
-                : { rotate: 0, y: 0 }
+              isMenuActive ? { rotate: -45, y: -2 } : { rotate: 0, y: 0 }
             }
             transition={{ duration: 0.3 }}
           />
@@ -91,7 +94,11 @@ const Nav = () => {
             <div className="fixed inset-0 bg-[#0C2438] w-screen h-screen md:hidden z-50 animate-fadeIn" />
             <div className="fixed inset-0 flex flex-col justify-start pt-32 p-6 md:hidden z-50 animate-fadeIn">
               <div className="absolute top-6 left-6 right-6 flex justify-between items-center">
-                <Link href="/" onClick={handleLogoClick} className="text-white text-2xl font-bold">
+                <Link
+                  href="/"
+                  onClick={handleLogoClick}
+                  className="text-white text-2xl font-bold"
+                >
                   <Image
                     className="md:hidden cursor-pointer"
                     src="/mobile-logo.svg"

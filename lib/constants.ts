@@ -8,9 +8,9 @@ export const ENDPOINTS = {
 } as const;
 
 export const LINK_ARR = [
-  { text: "ABOUT US", link: "/#about-us" },
-  { text: "OUR EDGE", link: "/#our-edge" },
-  { text: "OUR APPROACH", link: "/#our-approach" },
-  { text: "PORTFOLIO", link: "/#portfolio" },
-  { text: "CONTACT US", link: "/#contact-us" },
+  { text: "ABOUT US", link: "about-us" },
+  { text: "OUR EDGE", link: "our-edge" },
+  { text: "OUR APPROACH", link: "our-approach" },
+  { text: "PORTFOLIO", link: "portfolio" },
+  { text: "CONTACT US", link: "contact-us" },
 ];
