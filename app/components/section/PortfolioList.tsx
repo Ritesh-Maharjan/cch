@@ -16,12 +16,12 @@ const PortfolioList = ({ data }: { data: PortfolioItem[] }) => {
       {data.map((el) => (
         <Link key={el.id} href={"/portfolios/" + el.slug}>
           <motion.div
-            className="md:border-2 group md:hover:text-black md:hover:bg-white transition-all duration-500 ease-in min-h-60 flex flex-col md:flex-row lg:gap-20 cursor-pointer"
+            className="md:border-2 group md:hover:text-black md:hover:bg-white transition-all duration-500 ease-in min-h-50 flex flex-col md:flex-row lg:gap-20 cursor-pointer"
           >
-            <div className="relative w-full h-100 md:w-113 md:h-auto overflow-hidden">
+            <div className="relative w-full h-60 md:w-113 md:h-auto overflow-hidden">
               <Image
                 className="
-                  object-cover md:grayscale
+                  object-cover grayscale
                   md:group-hover:grayscale-0 md:group-hover:scale-105
                   transition-all duration-500 ease-in
                 "
@@ -30,11 +30,11 @@ const PortfolioList = ({ data }: { data: PortfolioItem[] }) => {
                 fill
               />
               <Image
-                className="hidden group-hover:block absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 brightness-0 w-2xl"
+                className="hidden group-hover:block absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 brightness-0 w-xs"
                 src={el.acf.project_logo}
                 alt={el.title.rendered}
-                height={50}
-                width={150}
+                height={80}
+                width={240}
               />
             </div>
 
