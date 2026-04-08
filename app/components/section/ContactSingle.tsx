@@ -3,7 +3,7 @@ import ContactForm from "../ui/ContactForm";
 
 const ContactSingle = () => {
     return (
-        <section className="bg-[#194B75] w-full flex justify-center min-h-screen items-center md:py-20 my-16 relative">
+        <section className="bg-[#194B75] w-full flex justify-center min-h-screen items-center md:py-20 relative">
             <Image
                 className="object-cover"
                 src="/contact-bg.webp"

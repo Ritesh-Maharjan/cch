@@ -5,6 +5,7 @@ import type { Splide as SplideType } from "@splidejs/react-splide";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const sectors = [
   {
@@ -50,7 +51,13 @@ const Edge = () => {
   return (
     <section className="w-full bg-white text-[#0C2438]">
       <div className="px-4 py-16 xl:px-0 md:py-24 w-screen max-w-312.5 mx-auto">
-        <div className="flex flex-col gap-4 mb-8 md:gap-6 md:px-4 lg:mb-12">
+        <motion.div
+          className="flex flex-col gap-4 mb-8 md:gap-6 md:px-4 lg:mb-12"
+          initial={{ x: -100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.7 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <span className="text-xl w-fit rounded-full font-heading font-bold">
             Our Edge
           </span>
@@ -58,11 +65,11 @@ const Edge = () => {
             Our Primary Investment Sectors
           </h2>
           <p className="hidden md:block md:w-128.75">
-            CCH Investments is a Canadian family office dedicated to investing in
-            private companies with a long-term perspective and a focus on building
-            lasting value. Guided by a hands.
+            CCH Investments is a Canadian family office dedicated to investing
+            in private companies with a long-term perspective and a focus on
+            building lasting value. Guided by a hands.
           </p>
-        </div>
+        </motion.div>
 
         <div className="relative md:pb-24">
           <Splide

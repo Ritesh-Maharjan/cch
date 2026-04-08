@@ -21,7 +21,7 @@ const PortfolioList = ({ data }: { data: PortfolioItem[] }) => {
             <div className="relative w-full h-100 md:w-113 md:h-auto overflow-hidden">
               <Image
                 className="
-                  object-cover grayscale
+                  object-cover md:grayscale
                   md:group-hover:grayscale-0 md:group-hover:scale-105
                   transition-all duration-500 ease-in
                 "

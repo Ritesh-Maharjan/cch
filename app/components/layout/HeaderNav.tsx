@@ -54,7 +54,7 @@ const Nav = () => {
           {LINK_ARR.map((el) => (
             <li key={el.text}>
               <Link
-                className={`text-xs lg:text-base ${activeId === el.link && "underline"}`}
+                className={`text-xs relative lg:text-base before:transition-all before:duration-400 before:ease-linear before:content-[''] before:absolute before:top-full before:block before:w-0 before:h-px before:bg-white ${activeId === el.link && "before:w-full"}`}
                 href={`/#${el.link}`}
                 onClick={handleLinkClick}
               >

@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const Approach = () => {
   return (
@@ -7,7 +9,13 @@ const Approach = () => {
         <Image className="object-cover" src="/aproach-bg.webp" alt="" fill />
       </div>
 
-      <div className="max-w-125 row-start-2 md:row-start-1 md:col-start-2 py-24 px-4 flex flex-col gap-6 md:gap-12">
+      <motion.div
+        className="max-w-125 row-start-2 md:row-start-1 md:col-start-2 py-24 px-4 flex flex-col gap-6 md:gap-12"
+        initial={{ x: 100, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        viewport={{ once: true, amount: 0.7 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <span className="text-xl w-fit rounded-full font-heading font-bold">
           Our Approach
         </span>
@@ -22,7 +30,7 @@ const Approach = () => {
           equity investments designed to fuel sustainable growth and lasting
           partnerships. Rooted in principled decision-making, our
         </p>
-      </div>
+      </motion.div>
     </section>
   );
 };
