@@ -28,7 +28,7 @@ const ContactForm = ({
           <fieldset className="flex-1 flex flex-col gap-2">
             <label htmlFor="firstName">First Name</label>
             <input
-              className="bg-white rounded-full py-2 px-4 text-[#0c2438]"
+              className="bg-white rounded-full py-2 px-4 text-navy-dark"
               type="text"
               name="firstName"
               id="firstName"
@@ -43,7 +43,7 @@ const ContactForm = ({
           <fieldset className="flex-1 flex flex-col gap-2">
             <label htmlFor="lastName">Last Name</label>
             <input
-              className="bg-white rounded-full py-2 px-4 text-[#0c2438]"
+              className="bg-white rounded-full py-2 px-4 text-navy-dark"
               type="text"
               name="lastName"
               id="lastName"
@@ -59,7 +59,7 @@ const ContactForm = ({
         <fieldset className="flex flex-col gap-2">
           <label htmlFor="email">Email</label>
           <input
-            className="bg-white rounded-full py-2 px-4 text-[#0c2438]"
+            className="bg-white rounded-full py-2 px-4 text-navy-dark"
             type="email"
             name="email"
             id="email"
@@ -72,7 +72,7 @@ const ContactForm = ({
         <fieldset className="flex flex-col gap-2">
           <label htmlFor="message">Message</label>
           <textarea
-            className="bg-white rounded-3xl py-2 px-4 text-[#0c2438]"
+            className="bg-white rounded-3xl py-2 px-4 text-navy-dark"
             name="message"
             id="message"
             rows={8}
@@ -95,7 +95,7 @@ const ContactForm = ({
         )}
 
         <button
-          className="bg-[#A1896D] text-lg col-span-2 py-3 rounded-xl cursor-pointer disabled:opacity-50"
+          className="bg-gold text-lg col-span-2 py-3 rounded-xl cursor-pointer disabled:opacity-50"
           type="submit"
           disabled={pending}
         >

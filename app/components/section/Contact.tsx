@@ -4,7 +4,7 @@ import ContactForm from "../ui/ContactForm";
 
 const Contact = () => {
   return (
-    <section className="bg-[#194B75] w-screen flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-14 md:min-h-screen">
+    <section className="bg-navy-mid w-screen flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-14 md:min-h-screen">
       <div className="relative h-80 sm:h-80 md:h-auto">
         <Image
           className="object-cover"

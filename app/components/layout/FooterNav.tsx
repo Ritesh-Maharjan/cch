@@ -1,18 +1,10 @@
+"use client";
 import { LINK_ARR } from "@/lib/constants";
 import Link from "next/link";
+import { useHashNavigation } from "@/app/hooks/useHashNavigation";
 
 const FooterNav = () => {
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    const href = e.currentTarget.getAttribute("href") || "";
-    const isHomeHash = href.startsWith("/#");
-
-    if (window.location.pathname === "/" && isHomeHash) {
-      e.preventDefault();
-      const hash = "#" + href.split("#")[1];
-      const target = document.querySelector(hash);
-      target?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+  const { handleLinkClick } = useHashNavigation();
 
   return (
     <div className="">

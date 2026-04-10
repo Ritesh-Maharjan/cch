@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 import { LINK_ARR } from "@/lib/constants";
 import { useScrollSpy } from "@/app/hooks/useScrollSpy";
+import { useHashNavigation } from "@/app/hooks/useHashNavigation";
 
 const Nav = () => {
   const [isMenuActive, setIsMenuActive] = useState<boolean>(false);
@@ -13,18 +14,10 @@ const Nav = () => {
     LINK_ARR.map((l) => l.link),
     0,
   );
+  const { handleLinkClick: navigate } = useHashNavigation();
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    const href = e.currentTarget.getAttribute("href") || "";
-    const isHomeHash = href.startsWith("/#");
-
-    if (window.location.pathname === "/" && isHomeHash) {
-      e.preventDefault();
-      const hash = "#" + href.split("#")[1];
-      const target = document.querySelector(hash);
-      target?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-
+    navigate(e);
     setIsMenuActive(false);
   };
 
@@ -91,7 +84,7 @@ const Nav = () => {
 
         {isMenuActive && (
           <>
-            <div className="fixed inset-0 bg-[#0C2438] w-screen h-screen md:hidden z-50 animate-fadeIn" />
+            <div className="fixed inset-0 bg-navy-dark w-screen h-screen md:hidden z-50 animate-fadeIn" />
             <div className="fixed inset-0 flex flex-col justify-start pt-32 p-6 md:hidden z-50 animate-fadeIn">
               <div className="absolute top-6 left-6 right-6 flex justify-between items-center">
                 <Link
@@ -128,7 +121,7 @@ const Nav = () => {
                     variants={menuVariants}
                   >
                     <Link
-                      className={`text-white transition-all duration-200 ease-in hover:text-[#00eca6]`}
+                      className={`text-white transition-all duration-200 ease-in hover:text-green-accent`}
                       href={el.link}
                       onClick={handleLinkClick}
                     >

@@ -12,7 +12,7 @@ const Header = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 w-full bg-[#0c2438]/45 backdrop-blur-sm">
+    <div className="fixed top-0 left-0 right-0 z-50 w-full bg-navy-dark/45 backdrop-blur-sm">
       <header className="flex items-center justify-between max-w-7xl mx-auto px-4 py-4">
         <Link href="/" onClick={handleLogoClick}>
           <div>
