@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const Approach = () => {
   return (
-    <section className=" bg-[#194B75] max-h-2/3 w-screen grid grid-cols-1 grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-14">
+    <section className=" bg-navy-mid max-h-2/3 w-screen grid grid-cols-1 grid-rows-2 md:grid-rows-1 md:grid-cols-2 gap-14">
       <div className="relative">
         <Image className="object-cover" src="/aproach-bg.webp" alt="" fill />
       </div>

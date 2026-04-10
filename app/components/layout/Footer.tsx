@@ -4,7 +4,7 @@ import FooterNav from "./FooterNav";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#0C2438]">
+    <footer className="w-full bg-navy-dark">
       <section className="flex flex-col gap-10 md:flex-row md:items-center justify-between max-w-7xl mx-auto px-4 py-10">
         <div className="flex flex-col gap-4">
           <Image

@@ -9,7 +9,7 @@ interface BackgroundSectionProps {
 }
 
 const variantClasses: Record<BackgroundVariant, string> = {
-    gradient: "bg-[linear-gradient(to_bottom,#0C2438_0%,#194B75_50%,#F9FCFF_100%)]",
+    gradient: "bg-[linear-gradient(to_bottom,var(--color-navy-dark)_0%,var(--color-navy-mid)_50%,var(--color-blue-pale)_100%)]",
     none: "",
 };
 

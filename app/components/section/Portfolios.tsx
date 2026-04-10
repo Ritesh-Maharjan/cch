@@ -9,7 +9,7 @@ import { PortfolioItem } from "@/lib/wordpress";
 import "swiper/css";
 import "swiper/css/effect-cube";
 import "swiper/css/navigation";
-import Link from "next/dist/client/link";
+import Link from "next/link";
 import Button from "../ui/Button";
 
 interface PortfoliosProps {

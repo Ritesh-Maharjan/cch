@@ -9,7 +9,7 @@ const ButtonSpan = ({
 }) => {
   return (
     <span
-      className={`bg-[#E8F4FF]  px-4 py-2 w-fit rounded-full ${className}`}
+      className={`bg-blue-light  px-4 py-2 w-fit rounded-full ${className}`}
     >
       {children}
     </span>

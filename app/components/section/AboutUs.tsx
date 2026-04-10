@@ -48,7 +48,7 @@ const AboutUs = ({ logos }: AboutUsProps) => {
   return (
     <section className="px-4 xl:px-0 pb-28 w-screen min-h-screen max-w-312.5 mx-auto">
       <div className="flex flex-col gap-10 -mt-40 lg:-mt-32">
-        <p className="text-[#033E6E] text-xl">
+        <p className="text-blue-deep text-xl">
           Our trusted partners, from film production to consumer products
         </p>
         {/* Swiper */}
@@ -96,7 +96,7 @@ const AboutUs = ({ logos }: AboutUsProps) => {
         </div>
       </div>
 
-      <div className="mt-18 grid grid-cols-1 text-[#033E6E] gap-x-4 gap-y-8 md:gap-x-16 lg:gap-x-32 lg:grid-cols-2 lg:grid-rows-[auto_1fr] md:px-4">
+      <div className="mt-18 grid grid-cols-1 text-blue-deep gap-x-4 gap-y-8 md:gap-x-16 lg:gap-x-32 lg:grid-cols-2 lg:grid-rows-[auto_1fr] md:px-4">
         <div
           ref={wrapperRef}
           className="relative overflow-hidden h-64 sm:h-80 md:h-96 lg:h-152 lg:row-span-2 order-2 lg:order-1"
@@ -121,7 +121,7 @@ const AboutUs = ({ logos }: AboutUsProps) => {
         </div>
 
         <motion.div
-          className="flex flex-col md:gap-6 order-1 lg:order-2 lg:h-fit text-[#0C2438]"
+          className="flex flex-col md:gap-6 order-1 lg:order-2 lg:h-fit text-navy-dark"
           initial={{ x: 100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true, amount: 0.7 }}
@@ -135,7 +135,7 @@ const AboutUs = ({ logos }: AboutUsProps) => {
           </h2>
         </motion.div>
 
-        <motion.div className="order-3 flex flex-col gap-4 text-[#0C2438]"
+        <motion.div className="order-3 flex flex-col gap-4 text-navy-dark"
           initial={{ x: 100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}

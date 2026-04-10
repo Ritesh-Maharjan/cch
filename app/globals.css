@@ -18,6 +18,16 @@
   );
   --transition-duration-600: 600ms;
 
+  /* Brand Colors */
+  --color-navy-dark: #0C2438;
+  --color-navy-mid: #194B75;
+  --color-blue-deep: #033E6E;
+  --color-gold: #A1896D;
+  --color-blue-light: #E8F4FF;
+  --color-off-white: #FBFDFF;
+  --color-green-accent: #00eca6;
+  --color-blue-pale: #F9FCFF;
+
   /* Marquee Animation */
   --animate-marquee: marquee 80s linear infinite;
   --animate-marquee-reverse: marquee-reverse 80s linear infinite;
