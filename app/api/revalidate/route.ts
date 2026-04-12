@@ -34,8 +34,7 @@ async function getIncomingSecret(request: NextRequest): Promise<string | null> {
 
 export async function POST(request: NextRequest) {
     const secret = await getIncomingSecret(request);
-    //todo: remove this log before production
-    console.log("Received revalidation request with secret:", secret);
+   
     if (secret !== process.env.REVALIDATE_SECRET) {
         return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
     }

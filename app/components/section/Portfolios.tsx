@@ -19,7 +19,7 @@ interface PortfoliosProps {
 export default function Portfolios({ initialSlides }: PortfoliosProps) {
     const swiperRef = useRef<SwiperType | null>(null);
     const isAnimating = useRef(false);
-    const [slides, setSlides] = useState<PortfolioItem[]>(initialSlides || []);
+    const [slides] = useState<PortfolioItem[]>(initialSlides || []);
     const [activeSlide, setActiveSlide] = useState<PortfolioItem | null>(
         slides[0] || null,
     );
@@ -50,7 +50,7 @@ export default function Portfolios({ initialSlides }: PortfoliosProps) {
         }, 2600);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [slides.length]);
 
     useEffect(() => {
         const handleSlideChange = (swiper: SwiperType) => {

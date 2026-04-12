@@ -11,7 +11,13 @@ const formSchema = z.object({
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
-export async function submitForm(prevState: any, formData: FormData) {
+type FormState = {
+  success: boolean;
+  message: string;
+  errors?: Partial<Record<string, string | string[]>>;
+};
+
+export async function submitForm(prevState: FormState, formData: FormData) {
   const rawValues = Object.fromEntries(formData.entries());
 
   const validatedFields = formSchema.safeParse(rawValues);
@@ -47,11 +53,4 @@ export async function submitForm(prevState: any, formData: FormData) {
       success: false,
     };
   }
-
-  // 5. Success
-  return {
-    message: "Form Submitted Successfully!",
-    success: true,
-    errors: {},
-  };
 }
