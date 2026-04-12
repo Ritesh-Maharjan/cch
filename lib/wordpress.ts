@@ -24,11 +24,15 @@ export async function getPortfolios(): Promise<PortfolioItem[]> {
     const res = await fetch(`${ENDPOINTS.PORTFOLIO}?_embed`, {
       next: { revalidate: REVALIDATE_TIME },
     });
-    if (!res.ok) throw new Error("Failed to fetch portfolios");
+    if (!res.ok) {
+      throw new Error(
+        `Failed to fetch portfolios: ${res.status} ${res.statusText}`,
+      );
+    }
     return res.json();
   } catch (error) {
     console.error("Error fetching portfolios:", error);
-    return [];
+    throw error;
   }
 }
 
@@ -39,10 +43,15 @@ export async function getPortfolioById(
     const res = await fetch(`${ENDPOINTS.PORTFOLIO_BY_ID(id)}?_embed`, {
       next: { revalidate: REVALIDATE_TIME },
     });
-    if (!res.ok) return null;
+    if (res.status === 404) return null;
+    if (!res.ok) {
+      throw new Error(
+        `Failed to fetch portfolio ${id}: ${res.status} ${res.statusText}`,
+      );
+    }
     return res.json();
   } catch (error) {
-    console.error("Error fetching portfolio:", error);
-    return null;
+    console.error("Error fetching portfolios:", error);
+    throw error;
   }
 }

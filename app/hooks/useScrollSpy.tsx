@@ -7,7 +7,7 @@ export function useScrollSpy(ids: string[], offset = 0) {
   useEffect(() => {
     const elements = ids
       .map((id) => document.getElementById(id))
-      .filter(Boolean);
+      .filter((el): el is HTMLElement => el !== null);
 
     const intersectingIds = new Set<string>();
 
@@ -31,10 +31,10 @@ export function useScrollSpy(ids: string[], offset = 0) {
       },
     );
 
-    elements.forEach((el) => observer.observe(el!));
+    elements.forEach((el) => observer.observe(el));
 
     return () => {
-      elements.forEach((el) => observer.unobserve(el!));
+      elements.forEach((el) => observer.unobserve(el));
     };
   }, [ids, offset]);
 
