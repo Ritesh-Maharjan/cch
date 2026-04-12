@@ -7,7 +7,7 @@ const FooterNav = () => {
   const { handleLinkClick } = useHashNavigation();
 
   return (
-    <div className="">
+    <nav aria-label="Footer Navigation">
       <ul className="grid grid-cols-1 md:grid-cols-3 gap-2 items-center">
         {LINK_ARR.map((el) => (
           <li key={el.text}>
@@ -21,7 +21,7 @@ const FooterNav = () => {
           </li>
         ))}
       </ul>
-    </div>
+    </nav>
   );
 };
 

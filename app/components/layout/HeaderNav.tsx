@@ -41,7 +41,7 @@ const Nav = () => {
   };
 
   return (
-    <nav>
+    <nav aria-label="Main navigation">
       <div className="hidden md:block">
         <ul className="flex gap-2 items-center lg:gap-6">
           {LINK_ARR.map((el) => (
@@ -63,6 +63,9 @@ const Nav = () => {
         <motion.button
           onClick={() => setIsMenuActive(!isMenuActive)}
           className="absolute group flex flex-col gap-2 cursor-pointer tracking-wider top-0 right-0 md:hidden z-51"
+          aria-label={isMenuActive ? "Close Menu" : "Open Menu"}
+          aria-expanded={isMenuActive}
+          aria-controls="mobile-menu"
         >
           <motion.span
             className="w-14 h-1 block bg-white"
@@ -85,7 +88,7 @@ const Nav = () => {
         {isMenuActive && (
           <>
             <div className="fixed inset-0 bg-navy-dark w-screen h-screen md:hidden z-50 animate-fadeIn" />
-            <div className="fixed inset-0 flex flex-col justify-start pt-32 p-6 md:hidden z-50 animate-fadeIn">
+            <div id="mobile-menu" className="fixed inset-0 flex flex-col justify-start pt-32 p-6 md:hidden z-50 animate-fadeIn">
               <div className="absolute top-6 left-6 right-6 flex justify-between items-center">
                 <Link
                   href="/"

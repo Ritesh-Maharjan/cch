@@ -88,7 +88,7 @@ const Edge = () => {
               height: "auto",
               updateOnMove: true,
             }}
-            aria-label="My Favorite Images"
+            aria-label="Investment Sectors"
           >
             {sectors.map((el, index) => (
               <SplideSlide className="flex h-fit gap-4 flex-col" key={index}>
