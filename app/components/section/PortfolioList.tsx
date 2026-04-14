@@ -28,6 +28,7 @@ const PortfolioList = ({ data }: { data: PortfolioItem[] }) => {
                 src={el.acf.cover_image}
                 alt={el.title.rendered}
                 fill
+                sizes="(min-width: 768px) 452px, 100vw"
               />
               <Image
                 className="hidden group-hover:block absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 brightness-0 w-xs"

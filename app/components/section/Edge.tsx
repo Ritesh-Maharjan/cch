@@ -97,6 +97,7 @@ const Edge = () => {
                     src={el.img}
                     alt={el.title}
                     fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1250px) 33vw, 365px"
                     className="object-cover"
                   />
                   <div className="bg-black opacity-80 hidden group-hover:flex  absolute inset-0">
@@ -105,6 +106,7 @@ const Edge = () => {
                       src="/web-round.svg"
                       alt=""
                       fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1250px) 33vw, 365px"
                     />
                   </div>
                 </div>

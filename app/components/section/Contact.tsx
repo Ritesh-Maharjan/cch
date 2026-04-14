@@ -11,6 +11,7 @@ const Contact = () => {
           src="/contactus.jpg"
           alt="building"
           fill
+          sizes="(min-width: 768px) 50vw, 100vw"
         />
       </div>
 

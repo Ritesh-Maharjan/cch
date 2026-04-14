@@ -9,6 +9,7 @@ const ContactSingle = () => {
                 src="/contact-bg.webp"
                 alt="building"
                 fill
+                sizes="100vw"
             />
 
             <ContactForm className={"z-10 bg-navy-mid w-full p-10 max-w-150 flex flex-col gap-4"} />
