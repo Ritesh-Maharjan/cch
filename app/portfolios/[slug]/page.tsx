@@ -6,31 +6,31 @@ import Link from "next/link";
 import Button from "@/app/components/ui/Button";
 import ContactSingle from "@/app/components/section/ContactSingle";
 import { getPortfolioBySlug, getPortfolios } from "@/lib/wordpress";
+import type { Metadata } from "next";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
-export async function generateMetadata({ params }: PageProps) {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const portfolio = await getPortfolioBySlug(slug);
 
-  return {
-    title: portfolio?.title.rendered,
-    description: portfolio?.acf.description,
+  if (!portfolio) {
+    return { title: "Portfolio not found" };
+  }
 
+  const ogImage =
+    portfolio._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+    portfolio.acf?.cover_image;
+
+  return {
+    title: portfolio.title.rendered,
+    description: portfolio.acf.description,
     openGraph: {
-      title: portfolio?.title.rendered,
-      description: portfolio?.excerpt,
-      images: [
-        {
-          url:
-            portfolio?._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-            portfolio?.acf?.cover_image,
-          width: 1200,
-          height: 630,
-        },
-      ],
+      title: portfolio.title.rendered,
+      description: portfolio.excerpt.rendered.replace(/<[^>]*>/g, ""),
+      ...(ogImage && { images: [{ url: ogImage, width: 1200, height: 630 }] }),
     },
   };
 }

@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import { SITE_URL } from "@/lib/constants";
+import type { Metadata } from "next";
 
 const lexendGiga = Lexend_Giga({
   weight: ["400", "600", "700", "900"],
@@ -20,7 +21,7 @@ const roboto = Roboto({
   variable: "--font-roboto",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
     default: "CCH Investments",
     template: "%s | CCH Investment",

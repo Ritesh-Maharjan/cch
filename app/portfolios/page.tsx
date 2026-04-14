@@ -1,7 +1,8 @@
 import { getPortfolios } from "@/lib/wordpress";
 import PortfolioList from "../components/section/PortfolioList";
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Portfolios",
   description: "Investment that we currently manage",
 };
