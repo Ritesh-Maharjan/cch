@@ -58,8 +58,7 @@ const AboutUs = ({ logos }: AboutUsProps) => {
               {[...logos, ...logos].map((src, index) => (
                 <div
                   key={index}
-                  className="relative w-32 h-24 lg:w-64 lg:h-40 shrink-0 overflow-hidden 
-                                    transition duration-600 ease-out-expo"
+                  className="relative w-32 h-24 lg:w-64 lg:h-40 shrink-0 overflow-hidden transition duration-600 ease-out-expo"
                 >
                   <Image
                     src={src}
@@ -78,8 +77,7 @@ const AboutUs = ({ logos }: AboutUsProps) => {
               {[...logos, ...logos].map((src, index) => (
                 <div
                   key={index}
-                  className="relative w-32 h-24 md:w-64 md:h-40 shrink-0 overflow-hidden` 
-                                    transition duration-600 ease-out-expo"
+                  className="relative w-32 h-24 md:w-64 md:h-40 shrink-0 overflow-hidden transition duration-600 ease-out-expo"
                 >
                   <Image
                     src={src}
@@ -158,7 +156,7 @@ const AboutUs = ({ logos }: AboutUsProps) => {
           </p>
 
           <Link href="/">
-            <Button variant="tertiary">LEARN MORE</Button>
+            <Button variant="secondary">LEARN MORE</Button>
           </Link>
         </motion.div>
       </div>

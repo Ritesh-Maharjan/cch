@@ -48,7 +48,7 @@ const PortfolioList = ({ data }: { data: PortfolioItem[] }) => {
               className="py-10 md:py-0 px-4.5 self-center flex flex-col gap-4 md:max-h-38 overflow-hidden"
             >
               <h2 className="text-2xl font-heading">{el.title.rendered}</h2>
-              <p className="md:max-w-[70ch]">{el.excerpt.rendered}</p>
+              <p className="md:max-w-[70ch]">{el.excerpt.rendered.replace(/<[^>]*>/g, "")}</p>
             </motion.div>
           </motion.div>
         </Link>

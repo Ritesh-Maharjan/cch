@@ -124,7 +124,7 @@ const Edge = () => {
             >
               <Image
                 src="/circle-arrow-left.svg"
-                alt="icon"
+                alt=""
                 height={60}
                 width={60}
               />
@@ -137,7 +137,7 @@ const Edge = () => {
             >
               <Image
                 src="/circle-arrow-right.svg"
-                alt="icon"
+                alt=""
                 height={60}
                 width={60}
               />
