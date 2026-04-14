@@ -98,7 +98,6 @@ const AboutUs = ({ logos }: AboutUsProps) => {
         <div
           ref={wrapperRef}
           className="relative overflow-hidden h-64 sm:h-80 md:h-96 lg:h-152 lg:row-span-2 order-2 lg:order-1"
-          aria-hidden={false}
         >
           <div
             className="absolute inset-0 will-change-transform"
