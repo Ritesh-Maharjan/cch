@@ -1,62 +1,19 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { PortfolioItem } from "@/lib/wordpress";
 
-type CarouselPortfolio = {
-    id: number;
-    slug: string;
-    title: { rendered: string };
-    acf?: {
-        cover_image?: string;
-        project_logo?: string;
-    };
-};
+interface PortfolioBackgroundCarouselProps {
+    items: PortfolioItem[];
+}
 
-const API_URL =
-    "https://mediumaquamarine-partridge-477378.hostingersite.com/wp-json/wp/v2/portfolio?_embed";
-
-export default function PortfolioBackgroundCarousel() {
-    const [items, setItems] = useState<CarouselPortfolio[]>([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        let active = true;
-
-        async function load() {
-            try {
-                const res = await fetch(API_URL);
-                if (!res.ok) throw new Error("Failed to fetch portfolios");
-                const data = (await res.json()) as CarouselPortfolio[];
-                if (active) setItems(data);
-            } catch (err) {
-                console.error(err);
-            } finally {
-                if (active) setLoading(false);
-            }
-        }
-
-        load();
-        return () => {
-            active = false;
-        };
-    }, []);
-
+export default function PortfolioBackgroundCarousel({ items }: PortfolioBackgroundCarouselProps) {
     const loopedItems = useMemo(
         () => (items.length > 0 ? [...items, ...items] : []),
         [items]
     );
-
-    if (loading) {
-        return (
-            <section className="mt-12">
-                <div className="border border-white/20 bg-black/10 p-6">
-                    <p className="text-sm text-white/80">Loading portfolio carousel...</p>
-                </div>
-            </section>
-        );
-    }
 
     if (items.length === 0) return null;
 

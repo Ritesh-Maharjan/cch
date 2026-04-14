@@ -5,6 +5,7 @@ import PortfolioBackgroundCarousel from "../../components/section/PortfolioBackg
 import Link from "next/link";
 import Button from "@/app/components/ui/Button";
 import ContactSingle from "@/app/components/section/ContactSingle";
+import { getPortfolioBySlug, getPortfolios } from "@/lib/wordpress";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -12,7 +13,7 @@ type PageProps = {
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
-  const portfolio = await fetchPortfolio(slug);
+  const portfolio = await getPortfolioBySlug(slug);
 
   return {
     title: portfolio?.title.rendered,
@@ -34,24 +35,12 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
-async function fetchPortfolio(slug: string) {
-  const url =
-    "https://mediumaquamarine-partridge-477378.hostingersite.com/wp-json/wp/v2/portfolio?_embed&slug=" +
-    encodeURIComponent(slug);
-
-  const res = await fetch(url, {
-    next: { revalidate: 60 },
-  });
-
-  if (!res.ok) return null;
-
-  const data = await res.json();
-  return Array.isArray(data) && data.length > 0 ? data[0] : null;
-}
-
 export default async function PortfolioPage({ params }: PageProps) {
   const { slug } = await params;
-  const portfolio = await fetchPortfolio(slug);
+  const [portfolio, allPortfolios] = await Promise.all([
+    getPortfolioBySlug(slug),
+    getPortfolios(),
+  ]);
 
   if (!portfolio) {
     notFound();
@@ -123,7 +112,7 @@ export default async function PortfolioPage({ params }: PageProps) {
             </div>
           </div>
         </div>
-        <PortfolioBackgroundCarousel />
+        <PortfolioBackgroundCarousel items={allPortfolios} />
       </BackgroundSection>
       <ContactSingle />
     </>
