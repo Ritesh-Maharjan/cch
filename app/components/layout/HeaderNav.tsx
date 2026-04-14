@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Button from "../ui/Button";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
 import { LINK_ARR } from "@/lib/constants";
@@ -9,6 +10,7 @@ import { useScrollSpy } from "@/app/hooks/useScrollSpy";
 import { useHashNavigation } from "@/app/hooks/useHashNavigation";
 
 const Nav = () => {
+  const router = useRouter();
   const [isMenuActive, setIsMenuActive] = useState<boolean>(false);
   const activeId = useScrollSpy(
     LINK_ARR.map((l) => l.link),
@@ -24,7 +26,7 @@ const Nav = () => {
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     setIsMenuActive(false);
-    window.location.href = "/";
+    router.push("/");
   };
 
   const menuVariants: Variants = {
