@@ -41,3 +41,6 @@ declare module "@splidejs/react-splide/css" {}
 declare module "swiper/css" {}
 declare module "swiper/css/effect-cube" {}
 declare module "swiper/css/navigation" {}
+
+// Matches relative CSS imports e.g. "./globals.css"
+declare module "*.css" {}
