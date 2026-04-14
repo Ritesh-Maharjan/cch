@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: "Investment that we currently manage",
 };
 
-const page = async () => {
+const PortfoliosPage = async () => {
   const data = await getPortfolios();
   return (
     <div className="bg-navy-mid min-h-screen w-screen pt-0.5">
@@ -27,4 +27,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default PortfoliosPage;
