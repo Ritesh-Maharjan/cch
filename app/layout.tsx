@@ -3,6 +3,7 @@ import { Lexend_Giga } from "next/font/google";
 import "./globals.css";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
+import { SITE_URL } from "@/lib/constants";
 
 const lexendGiga = Lexend_Giga({
   weight: ["400", "600", "700", "900"],
@@ -24,7 +25,7 @@ export const metadata = {
     default: "CCH Investments",
     template: "%s | CCH Investment",
   },
-  description: "Your next step to private inveestments",
+  description: "Your next step to private investments",
   icons: {
     icon: [
       { url: "/icons/favicon-32x32.png", sizes: "32x32", type: "image/png" },
@@ -34,11 +35,11 @@ export const metadata = {
     apple: "/icons/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",
-  metadataBase: new URL("https://www.cch-investments.com"),
+  metadataBase: new URL(SITE_URL),
   openGraph: {
     title: "CCH Investments",
     description: "Your next step to private investments",
-    url: "https://www.cch-investments.com/",
+    url: `${SITE_URL}/`,
     siteName: "CCH Investments",
     images: [
       {

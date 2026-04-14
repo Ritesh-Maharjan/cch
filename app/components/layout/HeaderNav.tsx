@@ -88,7 +88,10 @@ const Nav = () => {
         {isMenuActive && (
           <>
             <div className="fixed inset-0 bg-navy-dark w-screen h-screen md:hidden z-50 animate-fadeIn" />
-            <div id="mobile-menu" className="fixed inset-0 flex flex-col justify-start pt-32 p-6 md:hidden z-50 animate-fadeIn">
+            <div
+              id="mobile-menu"
+              className="fixed inset-0 flex flex-col justify-start pt-32 p-6 md:hidden z-50 animate-fadeIn"
+            >
               <div className="absolute top-6 left-6 right-6 flex justify-between items-center">
                 <Link
                   href="/"
@@ -125,7 +128,7 @@ const Nav = () => {
                   >
                     <Link
                       className={`text-white transition-all duration-200 ease-in hover:text-green-accent`}
-                      href={el.link}
+                      href={`/#${el.link}`}
                       onClick={handleLinkClick}
                     >
                       {el.text}

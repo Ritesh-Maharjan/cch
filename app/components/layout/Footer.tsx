@@ -8,7 +8,7 @@ const Footer = () => {
       <section className="flex flex-col gap-10 md:flex-row md:items-center justify-between max-w-7xl mx-auto px-4 py-10">
         <div className="flex flex-col gap-4">
           <Image
-            src="./logo.svg"
+            src="/logo.svg"
             alt="cch Investment logo"
             height={20}
             width={175}
@@ -18,7 +18,7 @@ const Footer = () => {
             companies with a focus on building lasting value.
           </p>
           <span className="text-[10px] font-extralight">
-            CCH INVE STMENTS &copy; COPYRIGHT 2026. ALL RIGHTS RESERVED.
+            CCH INVESTMENTS &copy; COPYRIGHT 2026. ALL RIGHTS RESERVED.
           </span>
         </div>
 
