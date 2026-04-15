@@ -24,63 +24,69 @@ const ContactForm = ({
       {children}
 
       <form action={formAction} className="flex flex-col gap-6">
+        {/* Honeypot field — hidden from users, bots fill this in */}
+        <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
         <div className="flex flex-col lg:flex-row gap-6">
-          <fieldset className="flex-1 flex flex-col gap-2">
+          <div className="flex-1 flex flex-col gap-2">
             <label htmlFor="firstName">First Name</label>
             <input
               className="bg-white rounded-full py-2 px-4 text-navy-dark"
               type="text"
               name="firstName"
               id="firstName"
+              required
             />
             {state.errors?.firstName && (
               <p className="text-red-500 text-xs mt-1">
                 {state.errors.firstName}
               </p>
             )}
-          </fieldset>
+          </div>
 
-          <fieldset className="flex-1 flex flex-col gap-2">
+          <div className="flex-1 flex flex-col gap-2">
             <label htmlFor="lastName">Last Name</label>
             <input
               className="bg-white rounded-full py-2 px-4 text-navy-dark"
               type="text"
               name="lastName"
               id="lastName"
+              required
             />
             {state.errors?.lastName && (
               <p className="text-red-500 text-xs mt-1">
                 {state.errors.lastName}
               </p>
             )}
-          </fieldset>
+          </div>
         </div>
 
-        <fieldset className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2">
           <label htmlFor="email">Email</label>
           <input
             className="bg-white rounded-full py-2 px-4 text-navy-dark"
             type="email"
             name="email"
             id="email"
+            required
           />
           {state.errors?.email && (
             <p className="text-red-500 text-xs mt-1">{state.errors.email}</p>
           )}
-        </fieldset>
+        </div>
 
-        <fieldset className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2">
           <label htmlFor="message">Message</label>
           <textarea
             className="bg-white rounded-3xl py-2 px-4 text-navy-dark"
             name="message"
             id="message"
             rows={8}
+            required
           />
           {state.errors?.message && (
             <p className="text-red-500 text-xs mt-1">{state.errors.message}</p>
           )}
-        </fieldset>
+        </div>
 
         {state.message && (
           <div

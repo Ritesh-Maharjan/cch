@@ -18,6 +18,10 @@ type FormState = {
 };
 
 export async function submitForm(prevState: FormState, formData: FormData) {
+  if (formData.get("website")) {
+    return { message: "Message sent successfully!", success: true };
+  }
+
   const rawValues = Object.fromEntries(formData.entries());
 
   const validatedFields = formSchema.safeParse(rawValues);
@@ -47,9 +51,9 @@ export async function submitForm(prevState: FormState, formData: FormData) {
 
     return { message: "Message sent successfully!", success: true };
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return {
-      message: "Database Error. Failed to Submit.",
+      message: "Failed to send message. Please try again.",
       success: false,
     };
   }
