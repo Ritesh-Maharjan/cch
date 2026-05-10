@@ -97,7 +97,7 @@ export default function Portfolios({ initialSlides }: PortfoliosProps) {
           </div>
           <Link
             href="/portfolios"
-            className="px-4 lg:px-6 py-2 rounded-4xl text-xs lg:text-base transition-all ease-in duration-200 bg-blue-light text-blue-deep hover:bg-blue-deep hover:text-blue-light w-fit"
+            className="px-4 lg:px-6 py-2 rounded-4xl text-xs lg:text-base transition-all ease-in duration-200 bg-blue-light text-blue-deep hover:bg-blue-deep hover:text-blue-light w-fit uppercase tracking-wide"
           >
             View all portfolios
           </Link>
