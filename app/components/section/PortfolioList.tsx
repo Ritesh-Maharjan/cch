@@ -15,9 +15,7 @@ const PortfolioList = ({ data }: { data: PortfolioItem[] }) => {
     <motion.section className="flex flex-col">
       {data.map((el) => (
         <Link key={el.id} href={"/portfolios/" + el.slug}>
-          <motion.div
-            className="md:border-2 group md:hover:text-black md:hover:bg-white transition-all duration-500 ease-in min-h-50 flex flex-col md:flex-row lg:gap-20 cursor-pointer"
-          >
+          <motion.div className="md:border-2 group md:hover:text-black md:hover:bg-white transition-all duration-500 ease-in min-h-50 flex flex-col md:flex-row lg:gap-20 cursor-pointer">
             <div className="relative w-full h-60 md:w-113 md:h-auto overflow-hidden">
               <Image
                 className="
@@ -31,24 +29,28 @@ const PortfolioList = ({ data }: { data: PortfolioItem[] }) => {
                 sizes="(min-width: 768px) 452px, 100vw"
               />
               <Image
-                className="hidden group-hover:block absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 brightness-0 w-xs"
+                className="block group-hover:hidden absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-xs brightness-100"
                 src={el.acf.project_logo}
                 alt={el.title.rendered}
                 height={80}
                 width={240}
               />
             </div>
-
             <motion.div
               variants={item}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="py-10 md:py-0 px-4.5 self-center flex flex-col gap-4 md:max-h-38 overflow-hidden"
+              className="py-10 md:py-0 px-4.5 self-center flex flex-col gap-4 md:max-h-48 overflow-hidden"
             >
               <h2 className="text-2xl font-heading">{el.title.rendered}</h2>
-              <p className="md:max-w-[70ch]">{el.excerpt.rendered.replace(/<[^>]*>/g, "")}</p>
+              <p className="md:max-w-[70ch]">
+                {el.excerpt.rendered.replace(/<[^>]*>/g, "")}
+              </p>
+              <span className="md:hidden px-4 py-2 rounded-4xl text-xs w-fit bg-blue-light text-blue-deep uppercase tracking-wide">
+                LEARN MORE
+              </span>
             </motion.div>
           </motion.div>
         </Link>

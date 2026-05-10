@@ -33,7 +33,7 @@ const Hero = () => {
         </motion.h1>
         <motion.div variants={itemVariants}>
           <Button variant="secondary" className="w-fit">
-            Learn More
+            LEARN MORE
           </Button>
         </motion.div>
       </div>

@@ -101,7 +101,7 @@ const ContactForm = ({
         )}
 
         <button
-          className="bg-gold text-lg col-span-2 py-3 rounded-xl cursor-pointer disabled:opacity-50"
+          className="bg-gold text-lg col-span-2 py-3 rounded-xl cursor-pointer disabled:opacity-50 uppercase tracking-wide"
           type="submit"
           disabled={pending}
         >
