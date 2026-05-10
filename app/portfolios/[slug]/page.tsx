@@ -5,6 +5,7 @@ import PortfolioBackgroundCarousel from "../../components/section/PortfolioBackg
 import Link from "next/link";
 import Button from "@/app/components/ui/Button";
 import ContactSingle from "@/app/components/section/ContactSingle";
+import FeaturedImageMotion from "@/app/components/ui/FeaturedImageMotion";
 import { getPortfolioBySlug, getPortfolios } from "@/lib/wordpress";
 import type { Metadata } from "next";
 
@@ -55,26 +56,20 @@ export default async function PortfolioPage({ params }: PageProps) {
     <>
       <BackgroundSection variant="gradient" className="py-20">
         <div className=" mx-auto">
-          <h1 className="mt-40 w-full max-w-7xl text-4xl md:text-5xl font-bold mb-6">
+          <h1 className="mt-10 w-full max-w-7xl text-2xl md:text-3xl mb-6">
             {portfolio.title.rendered}
           </h1>
 
           {featuredImage ? (
-            <div className="pt-8 lg:pb-12 w-full">
-              <div className="relative w-full max-w-7xl h-56 sm:h-72 md:h-96 mx-auto overflow-hidden rounded-lg">
-                <Image
-                  src={featuredImage}
-                  alt={portfolio.title.rendered}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 90vw, (max-width: 1024px) 70vw, 1200px"
-                  priority
-                />
-              </div>
-            </div>
+            <FeaturedImageMotion
+              src={featuredImage}
+              alt={portfolio.title.rendered}
+              sizes="(max-width: 768px) 90vw, (max-width: 1024px) 70vw, 1200px"
+              priority
+            />
           ) : null}
 
-          <div className="pt-8 lg:pt-25 space-y-4 w-full max-w-7xl mx-auto flex lg:flex-row flex-col gap-12 mb-40">
+          <div id="portfolio-content" className="pt-8 lg:pt-25 space-y-4 w-full max-w-7xl mx-auto flex lg:flex-row flex-col gap-12 mb-40">
             <div>
               <Image
                 src={portfolio.acf?.project_logo || ""}
@@ -100,7 +95,7 @@ export default async function PortfolioPage({ params }: PageProps) {
                 </Link>
               </div>
             </div>
-            <div className="lg:pl-12 lg:border-l border-black lg:flex lg:items-center">
+            <div className="lg:pl-12 lg:border-l border-white lg:flex lg:items-center">
               <div className="space-y-6 text-lg text-white">
                 {(portfolio.acf?.description || "")
                   .split(/\r?\n\r?\n/)
