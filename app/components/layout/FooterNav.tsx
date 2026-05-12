@@ -8,12 +8,12 @@ const FooterNav = () => {
 
   return (
     <nav aria-label="Footer Navigation">
-      <ul className="grid grid-cols-1 md:grid-cols-3 gap-2 items-center">
+      <ul className="flex gap-5 items-center">
         {LINK_ARR.map((el) => (
           <li key={el.text}>
             <Link
-              className="text-sm md:text-base"
-              href={`/#${el.link}`}
+              className="text-xs md:text-sm"
+              href={`/${el.link}`}
               onClick={handleLinkClick}
             >
               {el.text}

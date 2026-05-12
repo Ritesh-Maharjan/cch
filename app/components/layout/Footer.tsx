@@ -24,7 +24,7 @@ const Footer = () => {
 
         <div className="flex flex-col gap-5 ">
           <FooterNav />
-          <address className="font-extralight md:text-right">
+          <address className="font-extralight not-italic text-sm md:text-right">
             Floor 15 - 543 Granville Street <br />
             Vancouver, British Columbia
             <br />
