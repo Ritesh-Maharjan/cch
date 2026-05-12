@@ -10,7 +10,6 @@ import "swiper/css";
 import "swiper/css/effect-cube";
 import "swiper/css/navigation";
 import Link from "next/link";
-import Button from "../ui/Button";
 
 interface PortfoliosProps {
   initialSlides: PortfolioItem[];
@@ -23,6 +22,7 @@ export default function Portfolios({ initialSlides }: PortfoliosProps) {
   const [activeSlide, setActiveSlide] = useState<PortfolioItem | null>(
     slides[0] || null,
   );
+  const [mobileTextVisible, setMobileTextVisible] = useState(true);
 
   const truncateWords = (text: string, limit = 50) => {
     const words = text.trim().split(/\s+/);
@@ -47,30 +47,18 @@ export default function Portfolios({ initialSlides }: PortfoliosProps) {
       setTimeout(() => {
         isAnimating.current = false;
       }, 1200);
-    }, 2600);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, [slides.length]);
-
-  useEffect(() => {
-    const handleSlideChange = (swiper: SwiperType) => {
-      const slide = slides[swiper.realIndex];
-      setActiveSlide(slide || null);
-    };
-
-    swiperRef.current?.on("slideChange", handleSlideChange);
-    return () => {
-      swiperRef.current?.off("slideChange", handleSlideChange);
-    };
-  }, [slides]);
 
   if (!slides || slides.length === 0) {
     return <div>Loading portfolios...</div>;
   }
   return (
     <section className="w-full bg-white">
-      <div className="max-w-7xl mx-auto py-20 relative flex flex-col items-center gap-8 min-h-screen px-4 md:px-8 lg:grid lg:grid-cols-[50%_45%] lg:place-items-center lg:gap-16">
-        <div className="order-2 lg:order-1 w-full max-w-600">
+      <div className="max-w-7xl mx-auto py-20 relative flex flex-col items-center gap-8 h-50vh md:min-h-screen px-4 md:px-8 lg:grid lg:grid-cols-[50%_45%] lg:place-items-center lg:gap-16">
+        <div className="order-2 lg:order-1 w-full max-w-600 hidden lg:block">
           <h1 className="text-2xl lg:text-4xl font-extralight leading-8 md:leading-15 text-black mb-9">
             {activeSlide?.title.rendered || "Capital Portfolio"}
           </h1>
@@ -120,6 +108,31 @@ export default function Portfolios({ initialSlides }: PortfoliosProps) {
             &#10095;
           </button>
 
+          <div className="absolute inset-x-0 bottom-0 z-10 p-4 sm:p-6 lg:hidden pointer-events-none">
+            <div
+              className={`max-w-[92%] text-white transition-opacity duration-300 ease-in-out ${
+                mobileTextVisible ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <h1 className="text-2xl font-extralight leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.75)] mb-3">
+                {activeSlide?.title.rendered || "Capital Portfolio"}
+              </h1>
+              <p className="text-sm text-white/95 drop-shadow-[0_2px_10px_rgba(0,0,0,0.75)] mb-4">
+                {truncateWords(
+                  activeSlide?.acf.description ||
+                    "Some text about the company here. Our tours are designed to transport you to the heart of the world's most captivating destinations, creating memories that will last a lifetime. You can uncover the hidden gems, iconic landmarks, and unique cultural treasures that make each destination special.",
+                  28,
+                )}
+              </p>
+              <Link
+                href="/portfolios"
+                className="pointer-events-auto inline-flex px-4 py-2 rounded-4xl text-xs transition-all ease-in duration-200 bg-blue-light text-blue-deep hover:bg-blue-deep hover:text-blue-light w-fit uppercase tracking-wide"
+              >
+                View all portfolios
+              </Link>
+            </div>
+          </div>
+
           <Swiper
             modules={[EffectCube, Navigation]}
             effect="cube"
@@ -138,12 +151,18 @@ export default function Portfolios({ initialSlides }: PortfoliosProps) {
             grabCursor
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
+              setActiveSlide(slides[swiper.realIndex] || slides[0] || null);
+            }}
+            onSlideChange={(swiper) => {
+              setActiveSlide(slides[swiper.realIndex] || null);
             }}
             onSlideChangeTransitionStart={() => {
               isAnimating.current = true;
+              setMobileTextVisible(false);
             }}
             onSlideChangeTransitionEnd={() => {
               isAnimating.current = false;
+              setMobileTextVisible(true);
             }}
             className="w-full h-full"
             aria-label="Portfolio slides"
@@ -160,6 +179,7 @@ export default function Portfolios({ initialSlides }: PortfoliosProps) {
                   className="object-cover"
                   sizes="450px"
                 />
+                <div className="md:hidden absolute inset-0 bg-black/30 pointer-events-none" />
               </SwiperSlide>
             ))}
           </Swiper>

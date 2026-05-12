@@ -30,47 +30,47 @@ importers:
         specifier: ^2.12.2
         version: 2.12.2(react@19.2.3)
       resend:
-        specifier: ^6.9.3
+        specifier: ^6.12.3
         version: 6.12.3
       swiper:
-        specifier: ^12.1.2
+        specifier: ^12.1.4
         version: 12.1.4
       tsparticles:
         specifier: ^3.9.1
         version: 3.9.1
       zod:
-        specifier: ^4.3.6
+        specifier: ^4.4.3
         version: 4.4.3
     devDependencies:
       '@tailwindcss/postcss':
-        specifier: ^4
+        specifier: ^4.3.0
         version: 4.3.0
       '@types/node':
-        specifier: ^20
+        specifier: ^20.19.40
         version: 20.19.40
       '@types/react':
-        specifier: ^19
+        specifier: ^19.2.14
         version: 19.2.14
       '@types/react-dom':
-        specifier: ^19
+        specifier: ^19.2.3
         version: 19.2.3(@types/react@19.2.14)
       '@vitest/coverage-v8':
-        specifier: ^4.1.4
+        specifier: ^4.1.5
         version: 4.1.5(vitest@4.1.5)
       eslint:
-        specifier: ^9
+        specifier: ^9.39.4
         version: 9.39.4(jiti@2.7.0)
       eslint-config-next:
         specifier: 16.1.6
         version: 16.1.6(@typescript-eslint/parser@8.59.2(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3))(eslint@9.39.4(jiti@2.7.0))(typescript@5.9.3)
       tailwindcss:
-        specifier: ^4
+        specifier: ^4.3.0
         version: 4.3.0
       typescript:
-        specifier: ^5
+        specifier: ^5.9.3
         version: 5.9.3
       vitest:
-        specifier: ^4.1.4
+        specifier: ^4.1.5
         version: 4.1.5(@types/node@20.19.40)(@vitest/coverage-v8@4.1.5)(vite@8.0.11(@types/node@20.19.40)(jiti@2.7.0))
 
 packages:
