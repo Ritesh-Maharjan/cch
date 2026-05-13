@@ -19,7 +19,7 @@ export default function BackgroundSection({
     variant = "gradient",
 }: BackgroundSectionProps) {
     const classes = [
-        "flex flex-col px-2 md:px-4 min-h-screen w-screen max-w-screen",
+        "flex flex-col px-2 md:px-4 min-h-screen max-w-screen",
         variantClasses[variant],
         className,
     ]
