@@ -11,7 +11,7 @@ import HashScroll from "./components/layout/HashScroll";
 
 export default async function Home() {
   const portfolios = await getPortfolios();
-  const logos = portfolios.map((p) => p.acf.project_logo);
+  const logos = portfolios.map((p) => ({ src: p.acf.project_logo, slug: p.slug }));
 
   return (
     <div className="flex overflow-hidden min-h-screen  bg-zinc-50 font-sans">
@@ -19,7 +19,7 @@ export default async function Home() {
         <HashScroll />
         <BackgroundSection variant="gradient">
           <Hero />
-        </BackgroundSection>    
+        </BackgroundSection>
         <section id="about-us">
           <AboutUs logos={logos} />
         </section>

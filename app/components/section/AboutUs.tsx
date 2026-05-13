@@ -4,8 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+interface LogoItem {
+  src: string;
+  slug: string;
+}
+
 interface AboutUsProps {
-  logos: string[];
+  logos: LogoItem[];
 }
 
 const AboutUs = ({ logos }: AboutUsProps) => {
@@ -51,42 +56,44 @@ const AboutUs = ({ logos }: AboutUsProps) => {
           Our trusted partners, from film production to consumer products
         </p>
         {/* Swiper */}
-        <div className="whitespace-nowrap py-4 flex flex-col gap-4 overflow-hidden shadow-2xl rounded-4xl bg-white">
+        <div className="group whitespace-nowrap py-4 flex flex-col gap-4 overflow-hidden shadow-2xl rounded-4xl bg-white">
           <div className="w-fit">
-            <div className="flex gap-4 animate-marquee">
-              {[...logos, ...logos].map((src, index) => (
-                <div
+            <div className="flex gap-4 animate-marquee group-hover:[animation-play-state:paused]">
+              {[...logos, ...logos].map((logo, index) => (
+                <Link
                   key={index}
-                  className="relative w-32 h-24 lg:w-64 lg:h-40 shrink-0 overflow-hidden transition duration-600 ease-out-expo"
+                  href={`/portfolios/${logo.slug}`}
+                  className="relative w-32 h-24 lg:w-64 lg:h-40 shrink-0 overflow-hidden transition duration-600 ease-out-expo block"
                 >
                   <Image
-                    src={src}
+                    src={logo.src}
                     alt={`Logo ${index + 1}`}
                     fill
-                    className="object-contain p-4 brightness-0"
+                    className="object-contain p-4 brightness-0 opacity-60 hover:opacity-100 transition duration-300"
                     sizes="256px"
                     loading="lazy"
                   />
-                </div>
+                </Link>
               ))}
             </div>
           </div>
           <div className="md:hidden w-fit">
-            <div className="flex gap-4 animate-marquee-reverse">
-              {[...logos, ...logos].map((src, index) => (
-                <div
+            <div className="flex gap-4 animate-marquee-reverse group-hover:[animation-play-state:paused]">
+              {[...logos, ...logos].map((logo, index) => (
+                <Link
                   key={index}
-                  className="relative w-32 h-24 md:w-64 md:h-40 shrink-0 overflow-hidden transition duration-600 ease-out-expo"
+                  href={`/portfolios/${logo.slug}`}
+                  className="relative w-32 h-24 md:w-64 md:h-40 shrink-0 overflow-hidden transition duration-600 ease-out-expo block"
                 >
                   <Image
-                    src={src}
+                    src={logo.src}
                     alt={`Logo ${index + 1}`}
                     fill
-                    className="object-contain p-4 brightness-0"
+                    className="object-contain p-4 brightness-0 opacity-60 hover:opacity-100 transition duration-300"
                     sizes="256px"
                     loading="lazy"
                   />
-                </div>
+                </Link>
               ))}
             </div>
           </div>
