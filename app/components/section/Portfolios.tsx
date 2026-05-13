@@ -47,7 +47,7 @@ export default function Portfolios({ initialSlides }: PortfoliosProps) {
       setTimeout(() => {
         isAnimating.current = false;
       }, 1200);
-    }, 4000);
+    }, 100000);
 
     return () => clearInterval(interval);
   }, [slides.length]);
@@ -58,7 +58,7 @@ export default function Portfolios({ initialSlides }: PortfoliosProps) {
   return (
     <section className="w-full bg-white">
       <div className="max-w-7xl mx-auto py-20 relative flex flex-col items-center gap-8 h-50vh md:min-h-screen px-4 md:px-8 lg:grid lg:grid-cols-[50%_45%] lg:place-items-center lg:gap-16">
-        <div className="order-2 lg:order-1 w-full max-w-600 hidden lg:block">
+        <div className="order-2 lg:order-1 w-full max-w-600 hidden lg:block mx-auto">
           <h1 className="text-2xl lg:text-4xl font-extralight leading-8 md:leading-15 text-black mb-9">
             {activeSlide?.title.rendered || "Capital Portfolio"}
           </h1>
@@ -94,7 +94,7 @@ export default function Portfolios({ initialSlides }: PortfoliosProps) {
         <div className="order-1 lg:order-2 relative w-[320px] h-105 sm:w-90 sm:h-115 md:w-105 md:h-125">
           <button
             aria-label="Previous slide"
-            className="portfolio-prev absolute -left-12 top-1/2 z-20 -translate-y-1/2 h-9 w-9 rounded-full bg-white/90 text-black shadow"
+            className="portfolio-prev absolute -left-9 top-1/2 z-20 -translate-y-1/2 h-9 w-9 rounded-full bg-white/90 text-black shadow"
             type="button"
           >
             &#10094;
@@ -102,7 +102,7 @@ export default function Portfolios({ initialSlides }: PortfoliosProps) {
 
           <button
             aria-label="Next slide"
-            className="portfolio-next absolute -right-12 top-1/2 z-20 -translate-y-1/2 h-9 w-9 rounded-full bg-white/90 text-black shadow"
+            className="portfolio-next absolute -right-9 top-1/2 z-20 -translate-y-1/2 h-9 w-9 rounded-full bg-white/90 text-black shadow"
             type="button"
           >
             &#10095;
@@ -110,14 +110,14 @@ export default function Portfolios({ initialSlides }: PortfoliosProps) {
 
           <div className="absolute inset-x-0 bottom-0 z-10 p-4 sm:p-6 lg:hidden pointer-events-none">
             <div
-              className={`max-w-[92%] text-white transition-opacity duration-300 ease-in-out ${
+              className={`mx-auto max-w-[92%] text-white transition-opacity duration-300 ease-in-out ${
                 mobileTextVisible ? "opacity-100" : "opacity-0"
               }`}
             >
               <h1 className="text-2xl font-extralight leading-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.75)] mb-3">
                 {activeSlide?.title.rendered || "Capital Portfolio"}
               </h1>
-              <p className="text-sm text-white/95 drop-shadow-[0_2px_10px_rgba(0,0,0,0.75)] mb-4">
+              <p className="text-sm mt-4 text-white/95 drop-shadow-[0_2px_10px_rgba(0,0,0,0.75)] mb-4">
                 {truncateWords(
                   activeSlide?.acf.description ||
                     "Some text about the company here. Our tours are designed to transport you to the heart of the world's most captivating destinations, creating memories that will last a lifetime. You can uncover the hidden gems, iconic landmarks, and unique cultural treasures that make each destination special.",
@@ -126,7 +126,7 @@ export default function Portfolios({ initialSlides }: PortfoliosProps) {
               </p>
               <Link
                 href="/portfolios"
-                className="pointer-events-auto inline-flex px-4 py-2 rounded-4xl text-xs transition-all ease-in duration-200 bg-blue-light text-blue-deep hover:bg-blue-deep hover:text-blue-light w-fit uppercase tracking-wide"
+                className="my-4 pointer-events-auto inline-flex px-4 py-2 rounded-4xl text-xs transition-all ease-in duration-200 bg-blue-light text-blue-deep hover:bg-blue-deep hover:text-blue-light w-fit uppercase tracking-wide"
               >
                 View all portfolios
               </Link>
