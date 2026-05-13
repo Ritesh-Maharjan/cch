@@ -29,7 +29,7 @@ export default function PortfolioBackgroundCarousel({ items }: PortfolioBackgrou
                             <Link
                                 key={item.id + "-" + index}
                                 href={"/portfolios/" + item.slug}
-                                className="group relative block h-52 w-80 shrink-0 overflow-hidden bg-black"
+                                className="group relative block h-56 w-72 md:h-72 md:w-96 shrink-0 overflow-hidden bg-black"
                             >
                                 {cover ? (
                                     <Image

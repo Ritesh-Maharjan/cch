@@ -40,7 +40,7 @@ const sectors = [
   },
   {
     img: "https://picsum.photos/seed/6/640/400",
-    title: "Finance",
+    title: "Private Credit",
     description:
       "Expanding financial services through fintech solutions, private equity investments, and diversified asset management.",
   },
