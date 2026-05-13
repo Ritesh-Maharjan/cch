@@ -143,6 +143,27 @@ const Edge = () => {
               />
             </button>
           </div>
+
+          {/* Mobile-only pagination buttons */}
+          <>
+            <button
+              aria-label="Previous slide"
+              onClick={() => splideRef.current?.splide?.go("<")}
+              className="portfolio-prev absolute left-[-16] top-1/2 -translate-y-1/2 z-20 h-9 w-9 rounded-full bg-white/90 text-black shadow pointer-events-auto md:hidden"
+              type="button"
+            >
+              &#10094;
+            </button>
+
+            <button
+              aria-label="Next slide"
+              onClick={() => splideRef.current?.splide?.go(">")}
+              className="portfolio-next absolute right-[-15] top-1/2 -translate-y-1/2 z-20 h-9 w-9 rounded-full bg-white/90 text-black shadow pointer-events-auto md:hidden"
+              type="button"
+            >
+              &#10095;
+            </button>
+          </>
         </div>
       </div>
     </section>

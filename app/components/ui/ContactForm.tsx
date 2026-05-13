@@ -26,7 +26,7 @@ const ContactForm = ({
       <form action={formAction} className="flex flex-col gap-6">
         {/* Honeypot field — hidden from users, bots fill this in */}
         <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
-        <div className="flex flex-col lg:flex-row gap-6">
+        <div className="flex flex-col lg:flex-row gap-6 text-sm">
           <div className="flex-1 flex flex-col gap-2">
             <label htmlFor="firstName">First Name</label>
             <input
@@ -43,7 +43,7 @@ const ContactForm = ({
             )}
           </div>
 
-          <div className="flex-1 flex flex-col gap-2">
+          <div className="flex-1 flex flex-col gap-2 ">
             <label htmlFor="lastName">Last Name</label>
             <input
               className="bg-white rounded-full py-2 px-4 text-navy-dark"
@@ -60,7 +60,7 @@ const ContactForm = ({
           </div>
         </div>
 
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 text-sm">
           <label htmlFor="email">Email</label>
           <input
             className="bg-white rounded-full py-2 px-4 text-navy-dark"
@@ -74,7 +74,7 @@ const ContactForm = ({
           )}
         </div>
 
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 text-sm">
           <label htmlFor="message">Message</label>
           <textarea
             className="bg-white rounded-3xl py-2 px-4 text-navy-dark"
