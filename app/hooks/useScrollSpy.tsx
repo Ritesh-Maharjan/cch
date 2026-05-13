@@ -5,7 +5,11 @@ export function useScrollSpy(ids: string[], offset = 0) {
   const [activeId, setActiveId] = useState("");
 
   useEffect(() => {
-    const elements = ids
+    const sectionIds = ids
+      .filter((id) => id.startsWith("#"))
+      .map((id) => id.slice(1));
+
+    const elements = sectionIds
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
 
@@ -20,7 +24,7 @@ export function useScrollSpy(ids: string[], offset = 0) {
             intersectingIds.delete(entry.target.id);
           }
           const newActiveId =
-            [...ids].reverse().find((id) => intersectingIds.has(id)) || "";
+            [...sectionIds].reverse().find((id) => intersectingIds.has(id)) || "";
 
           setActiveId(newActiveId);
         });

@@ -47,7 +47,7 @@ const Nav = () => {
           {LINK_ARR.map((el) => (
             <li key={el.text}>
               <Link
-                className={`text-xs relative lg:text-base before:transition-all before:duration-400 before:ease-linear before:content-[''] before:absolute before:top-full before:block before:w-0 before:h-px before:bg-white ${activeId === el.link && "before:w-full"}`}
+                className={`text-xs relative lg:text-base before:transition-all before:duration-400 before:ease-linear before:content-[''] before:absolute before:top-full before:block before:w-0 before:h-px before:bg-white ${activeId === el.link.replace("#", "") && "before:w-full"}`}
                 href={`/${el.link}`}
                 onClick={handleLinkClick}
               >
@@ -128,7 +128,7 @@ const Nav = () => {
                   >
                     <Link
                       className={`text-white transition-all duration-200 ease-in hover:text-green-accent`}
-                      href={`/#${el.link}`}
+                      href={`/${el.link}`}
                       onClick={handleLinkClick}
                     >
                       {el.text}
