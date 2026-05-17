@@ -19,7 +19,7 @@ const Hero = () => {
 
   return (
     <motion.section
-      className="relative flex-1 px-4 flex items-center h-full w-full max-w-312.5 mx-auto"
+      className="relative flex-1 px-4 flex items-center h-full w-full max-w-7xl mx-auto"
       initial="hidden"
       animate="visible"
       variants={containerVariants}

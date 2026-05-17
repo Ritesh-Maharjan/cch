@@ -50,7 +50,7 @@ const Edge = () => {
 
   return (
     <section className="w-full bg-white text-navy-dark">
-      <div className="px-4 py-16 xl:px-0 md:py-24 w-screen max-w-312.5 mx-auto">
+      <div className="px-4 py-16 xl:px-0 md:py-24 w-screen max-w-7xl mx-auto">
         <motion.div
           className="flex flex-col gap-4 mb-8 md:gap-6 md:px-4 lg:mb-12"
           initial={{ x: -100, opacity: 0 }}
