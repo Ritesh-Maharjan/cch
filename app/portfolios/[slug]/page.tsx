@@ -55,7 +55,7 @@ export default async function PortfolioPage({ params }: PageProps) {
   return (
     <>
       <BackgroundSection variant="gradient" className="py-20">
-        <div className=" mx-auto">
+        <div className="mx-auto max-w-7xl px-4">
           <h1 className="mt-10 w-full max-w-7xl text-2xl md:text-3xl mb-6">
             {portfolio.title.rendered}
           </h1>

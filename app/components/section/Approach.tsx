@@ -10,7 +10,7 @@ const Approach = () => {
       </div>
 
       <motion.div
-        className="max-w-125 row-start-2 md:row-start-1 md:col-start-2 py-24 px-4 flex flex-col gap-6 md:gap-12"
+        className="max-w-125 row-start-2 md:row-start-1 md:col-start-2 py-24 px-4 flex flex-col gap-4 md:gap-6"
         initial={{ x: 100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true, amount: 0.7 }}

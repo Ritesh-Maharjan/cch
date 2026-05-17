@@ -50,10 +50,10 @@ const AboutUs = ({ logos }: AboutUsProps) => {
   }, []);
 
   return (
-    <section className="px-4 xl:px-0 pb-16 md:pb-28 w-screen min-h-screen max-w-312.5 mx-auto">
+    <section className="px-4 xl:px-0 pb-16 md:pb-28 w-screen min-h-screen max-w-7xl mx-auto">
       <div className="flex flex-col gap-10 -mt-40 lg:-mt-32">
         <p className="text-blue-deep text-xl">
-          Our trusted partners, from film production to consumer products
+          Trusted Partners of CCH Investments, from film production to consumer products
         </p>
         {/* Swiper */}
         <div className="group whitespace-nowrap py-4 flex flex-col gap-4 overflow-hidden shadow-2xl rounded-4xl bg-white">

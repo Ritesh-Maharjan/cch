@@ -29,7 +29,7 @@ const PortfolioList = ({ data }: { data: PortfolioItem[] }) => {
                 sizes="(min-width: 768px) 452px, 100vw"
               />
               <Image
-                className="block group-hover:hidden absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-xs brightness-100"
+                className="block group-hover:hidden absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-62 brightness-100"
                 src={el.acf.project_logo}
                 alt={el.title.rendered}
                 height={80}
